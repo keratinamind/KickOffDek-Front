@@ -1,12 +1,12 @@
-import React from 'react'
-import Landing from '../components/features/landing'
+import React from "react";
+import Landing from "../components/features/Landing";
 
 function Homepage() {
-    return (
-        <div>
-            <Landing />
-        </div>
-    )
+  return (
+    <div>
+      <Landing />
+    </div>
+  );
 }
 
-export default Homepage
+export default Homepage;

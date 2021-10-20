@@ -1,9 +1,57 @@
 import React from "react";
 import Cardproject from "../reuse/Cardproject";
+import ModalLogin from "../features/login/ModalLogin";
+import { useState } from "react";
+import Modalchangepassword from "./login/ModalChangePassword";
+import Modalchangepasswordsuccess from "./login/ModalChangePasswordSuccess";
+import Modallogincreate from "./login/ModalLoginCreate";
+import Modalloginpassword from "./login/ModalLoginPassword";
 
 function Landing() {
+  const [openModal, setOpenModal] = useState(false);
+  const [openModalPassword, setOpenModalPassword] = useState(false);
+  const [openModalCreate, setOpenModalCreate] = useState(false);
+  const [openModalChangePass, setOpenModalChangePass] = useState(false);
+  const [openModalChangeSucc, setOpenModalChangeSucc] = useState(false);
   return (
     <>
+      <div className="px-10 py-10 mx-5">
+        <button
+          className="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center hover:bg-purple-300"
+          onClick={() => setOpenModal(true)}
+        >
+          Open Modal 1st
+        </button>
+        {openModal && <ModalLogin closeModal={setOpenModal} />}
+        <button
+          className="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center hover:bg-purple-300"
+          onClick={() => setOpenModalPassword(true)}
+        >
+          Open Modal password
+        </button>
+        {openModalPassword && <Modalloginpassword closeModal={setOpenModalPassword} />}
+        <button
+          className="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center hover:bg-purple-300"
+          onClick={() => setOpenModalCreate(true)}
+        >
+          Open Create
+        </button>
+        {openModalCreate && <Modallogincreate closeModal={setOpenModalCreate} />}
+        <button
+          className="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center hover:bg-purple-300"
+          onClick={() => setOpenModalChangePass(true)}
+        >
+          Open Modal Change Password
+        </button>
+        {openModalChangePass && <Modalchangepassword closeModal={setOpenModalChangePass} />}
+        {/* <button
+          className="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center hover:bg-purple-300"
+          onClick={() => setOpenModal(true)}
+        >
+          Open Change Pass suc
+        </button>
+        {openModalChangeSucc && <Modalchangepasswordsuccess closeModal={setOpenModalChangeSucc} />} */}
+      </div>
       <div className="w-10/12  mx-auto flex justify-center items-center">
         <div class="bg-black text-white py-20">
           <div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
