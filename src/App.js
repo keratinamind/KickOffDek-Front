@@ -4,6 +4,7 @@ import Navbar from "./components/reuse/Navbar";
 import Homepage from "./pages/Homepage";
 import "./App.css";
 import Category from "./pages/Category";
+import Project from "./pages/Project";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/category" component={Category} />
+          <Route path="/project" component={Project} />
           <Route path="/" component={Homepage} />
         </Switch>
         <Footer />
