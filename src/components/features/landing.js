@@ -1,6 +1,6 @@
 import React from "react";
 import Cardproject from "../reuse/Cardproject";
-import ModalLogin from "../features/login/ModalLogin";
+import ModalLogin from "./login/ModalLogin";
 import { useState } from "react";
 import Modalchangepassword from "./login/ModalChangePassword";
 import Modalchangepasswordsuccess from "./login/ModalChangePasswordSuccess";
@@ -52,7 +52,7 @@ function Landing() {
         </button>
         {openModalChangeSucc && <Modalchangepasswordsuccess closeModal={setOpenModalChangeSucc} />} */}
       </div>
-      <div className="w-10/12  mx-auto flex justify-center items-center">
+      
         <div class="bg-black text-white py-20">
           <div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
             <div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
@@ -97,10 +97,10 @@ function Landing() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="w-10/12 mx-auto flex flex-col items-center pt-20">
+      
+      <div className="container  bg-blue-400 mx-auto flex flex-col items-center pt-20">
         <h1 className="text-3xl">Trending Projects</h1>
-        <div className="flex flex-row justify-between py-20">
+        <div className="flex flex-row flex-wrap justify-between py-20">
           <Cardproject />
           <Cardproject />
           <Cardproject />

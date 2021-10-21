@@ -1,5 +1,5 @@
 import React from "react";
-import Landing from "../components/features/Landing";
+import Landing from "../components/features/Landing"
 
 function Homepage() {
   return (
