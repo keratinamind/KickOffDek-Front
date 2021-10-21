@@ -6,20 +6,20 @@ function Modallogincreate({ closeModal }) {
   return (
     <div className="modalContainer">
       <div
-        class="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover"
+        className="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover"
         id="modal-id"
       >
-        <div class="absolute backdrop-filter backdrop-blur-lg  inset-0 z-0"></div>
-        <div class="w-150  p-3 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
-          <div class="text-center p-3 flex-auto justify-center">
+        <div className="absolute backdrop-filter backdrop-blur-lg  inset-0 z-0"></div>
+        <div className="w-150  p-3 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
+          <div className="text-center p-3 flex-auto justify-center">
             <HiOutlineX
               className="text-gray-900 absolute right-7 hover:text-red-800"
               onClick={() => closeModal(false)}
             />
-            <h2 class="text-2xl py-2 text-gray-900 ">
+            <h2 className="text-2xl py-2 text-gray-900 ">
               You don't have KICKOFFDEK account
             </h2>
-            <h3 class="text-xl py-2 text-gray-900 ">Register account</h3>
+            <h3 className="text-xl py-2 text-gray-900 ">Register account</h3>
           </div>
           <div className="flex flex-row mx-auto justify-center text-xl items-start w-11/12">
             <div className="mr-5">
@@ -93,8 +93,8 @@ function Modallogincreate({ closeModal }) {
                 placeholder="Password"
               />
               <div className="flex flex-row">
-                <div class="w-2/3 mt-3 h-1 bg-blue-200 rounded-full">
-                  <div class="w-2/3 h-full text-center text-xs text-white bg-blue-600 rounded-full"></div>
+                <div className="w-2/3 mt-3 h-1 bg-blue-200 rounded-full">
+                  <div className="w-2/3 h-full text-center text-xs text-white bg-blue-600 rounded-full"></div>
                 </div>
                 <span className="px-4 pt-1 text-sm">Stronk</span>
               </div>
@@ -115,7 +115,7 @@ function Modallogincreate({ closeModal }) {
               andTerms of Service apply.
             </p>
           </div>
-          <div class="p-3 w-11/12 mx-auto mt-2 text-center space-x-4 md:block">
+          <div className="p-3 w-11/12 mx-auto mt-2 text-center space-x-4 md:block">
             <div className="flex justify-between items-center">
               <div className="flex flex-row items-center">
               <HiOutlineArrowNarrowLeft />
@@ -123,7 +123,7 @@ function Modallogincreate({ closeModal }) {
               </div>
               
               <div>
-                <button class="bg-purple-600 w-full rounded-lg font-semibold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:purple-blue-800 mr-6">
+                <button className="bg-purple-600 w-full rounded-lg font-semibold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:purple-blue-800 mr-6">
                   Register
                 </button>
               </div>

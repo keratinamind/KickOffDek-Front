@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className=" mx-auto w-full bg-gray-900 flex flex-row justify-around p-4">
       <ul className="flex flex-start gap-x-20 text-white">
-        <div class="">
+        <div className="">
           <ul className="mx-10">
             <li>
               <h3 className="text-lg">ABOUT</h3>
@@ -30,7 +30,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div class="">
+        <div className="">
           <ul className="mx-10">
             <li>
               <h3 className="text-lg">Project Guidelines</h3>
@@ -49,7 +49,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div class="">
+        <div className="">
           <ul className="mx-10">
             <li>
               <h3 className="text-lg">MORE</h3>

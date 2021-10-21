@@ -6,17 +6,17 @@ function Modalloginpassword({ closeModal }) {
   return (
     <div className="modalContainer">
       <div
-        class="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover"
+        className="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover"
         id="modal-id"
       >
-        <div class="absolute backdrop-filter backdrop-blur-lg  inset-0 z-0"></div>
-        <div class="w-150  p-3 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
-          <div class="text-center p-3 flex-auto justify-center">
+        <div className="absolute backdrop-filter backdrop-blur-lg  inset-0 z-0"></div>
+        <div className="w-150  p-3 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
+          <div className="text-center p-3 flex-auto justify-center">
             <HiOutlineX
               className="text-gray-900 absolute right-7 hover:text-red-800"
               onClick={() => closeModal(false)}
             />
-            <h2 class="text-2xl py-4 text-gray-900 ">
+            <h2 className="text-2xl py-4 text-gray-900 ">
               You have a KICKOFFDEK account!
             </h2>
             <div className="flex flex-row mx-auto justify-center text-xl items-center">
@@ -48,12 +48,12 @@ function Modalloginpassword({ closeModal }) {
             <p className="text-xs pt-2 text-red-700">
               Your password is not correct!
             </p>
-            <p class="text-sm py-5 text-gray-900">
+            <p className="text-sm py-5 text-gray-900">
               By logging in using your account, you agree to the T&Cs and
               Privacy Policy.
             </p>
           </div>
-          <div class="p-3 w-11/12 mx-auto mt-2 text-center space-x-4 md:block">
+          <div className="p-3 w-11/12 mx-auto mt-2 text-center space-x-4 md:block">
             <div className="flex justify-between items-center">
               <div className="flex flex-row items-center">
                 <HiOutlineArrowNarrowLeft />
@@ -64,7 +64,7 @@ function Modalloginpassword({ closeModal }) {
               </div>
               <div>
                 <button
-                  class="bg-purple-600 w-full rounded-lg font-semibold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:purple-blue-800 mr-6"
+                  className="bg-purple-600 w-full rounded-lg font-semibold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:purple-blue-800 mr-6"
                 >
                   Login
                 </button>
