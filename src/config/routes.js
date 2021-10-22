@@ -1,11 +1,11 @@
 
-import EditorHome from "../components/features/projecteditor/EditorHome";
+import ProjectEditorHome from "../pages/projecteditor/ProjectEditorHome"
 import Homepage from "../pages/Homepage";
 
 const route = {
   user: {
     route: [
-      { path: "/project", component: EditorHome },
+      { path: "/project", component: ProjectEditorHome },
       { path: "/user", component: Homepage },
       { path: "/checkout", component: Homepage},
       { path: "/content", component: Homepage },
