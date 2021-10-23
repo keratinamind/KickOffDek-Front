@@ -9,6 +9,7 @@ import {
   Link,
   useRouteMatch,
 } from "react-router-dom";
+import UDMyPledge from "../components/features/user-directory/UDMyPledge";
 
 function Dashboard() {
   const { path, url } = useRouteMatch();
@@ -24,7 +25,8 @@ function Dashboard() {
           <Route path="/dashboard/preference" component={UDPreference} />
         </Switch> */}
         {/* <UDHome /> */}
-        <UDPreference />
+        {/* <UDPreference /> */}
+        <UDMyPledge />
       </div>
     </div>
   );
