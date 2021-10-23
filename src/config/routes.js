@@ -1,13 +1,18 @@
-
 import EditorHome from "../components/features/projecteditor/EditorHome";
+import Dashboard from "../pages/Dashboard";
 import Homepage from "../pages/Homepage";
+import Project from "../pages/Project";
 
 const route = {
   user: {
     route: [
-      { path: "/project", component: EditorHome },
+      // I edit this path
+      { path: "/project", component: Project },
+      //I added these path
+      { path: "/dashboard", component: Dashboard },
+      //added till here
       { path: "/user", component: Homepage },
-      { path: "/checkout", component: Homepage},
+      { path: "/checkout", component: Homepage },
       { path: "/content", component: Homepage },
       { path: "/contact", component: Homepage },
       { path: "/forgotpassowrd", component: Homepage },
