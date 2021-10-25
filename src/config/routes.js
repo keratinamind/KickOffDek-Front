@@ -1,4 +1,7 @@
 import EditorHome from "../components/features/projecteditor/EditorHome";
+import MyPledges from "../components/features/user-directory/MyPledges";
+import Preference from "../components/features/user-directory/Preference";
+import Category from "../pages/Category";
 import Dashboard from "../pages/Dashboard";
 import Homepage from "../pages/Homepage";
 import Project from "../pages/Project";
@@ -9,7 +12,10 @@ const route = {
       // I edit this path
       { path: "/project", component: Project },
       //I added these path
+      { path: "/dashboard/preference", component: Preference },
+      { path: "/dashboard/mypledge", component: MyPledges },
       { path: "/dashboard", component: Dashboard },
+      { path: "/explore", component: Category },
       //added till here
       { path: "/user", component: Homepage },
       { path: "/checkout", component: Homepage },

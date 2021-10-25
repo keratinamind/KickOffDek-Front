@@ -20,15 +20,21 @@ function UserDirectSideNav() {
       </div>
       <div className="flex justify-start items-center my-4 mx-4 cursor-pointer">
         <FaHome className="mr-2 text-xl" />
-        <h1>Home</h1>
+        <Link to="/dashboard">
+          <h1>Home</h1>
+        </Link>
       </div>
       <div className="flex justify-start items-center my-4 mx-4 cursor-pointer">
         <AiFillSetting className="mr-2 text-xl" />
-        <h1>Preferences</h1>
+        <Link to="/dashboard/preference">
+          <h1>Preferences</h1>
+        </Link>
       </div>
       <div className="flex justify-start items-center my-4 mx-4 cursor-pointer">
         <FaBuromobelexperte className="mr-2 text-xl" />
-        <h1>My pledges</h1>
+        <Link to="/dashboard/mypledge">
+          <h1>My pledges</h1>
+        </Link>
       </div>
       <div className="flex justify-start items-center my-4 mx-4 cursor-pointer">
         <AiFillMessage className="mr-2 text-xl" />

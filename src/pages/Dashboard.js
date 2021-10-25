@@ -19,14 +19,7 @@ function Dashboard() {
         <UserDirectSideNav />
       </div>
       <div className="col-span-9">
-        {/* how to do switch path here wa */}
-        {/* <Switch>
-          <Route path="/dashboard" component={UDHome} />
-          <Route path="/dashboard/preference" component={UDPreference} />
-        </Switch> */}
-        {/* <UDHome /> */}
-        {/* <UDPreference /> */}
-        <UDMyPledge />
+        <UDHome />
       </div>
     </div>
   );
