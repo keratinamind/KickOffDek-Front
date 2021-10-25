@@ -1,10 +1,8 @@
-import { BrowserRouter, Switch, Route , Redirect } from 'react-router-dom';
-import Footer from './components/reuse/Footer';
-import Navbar from './components/reuse/Navbar';
-import './App.css';
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import Footer from "./components/reuse/Footer";
+import Navbar from "./components/reuse/Navbar";
+import "./App.css";
 import route from "./config/routes";
-
-
 
 function App() {
   const user = "user";
@@ -16,9 +14,13 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Switch>
-          
-        {route[role].route.map((elem, idx)=> (
-            <Route key={idx} path={elem.path} component={elem.component} redirect={elem.redirect} />
+          {route[role].route.map((elem, idx) => (
+            <Route
+              key={idx}
+              path={elem.path}
+              component={elem.component}
+              redirect={elem.redirect}
+            />
           ))}
           <Redirect to={route[role].redirect} />
         </Switch>
