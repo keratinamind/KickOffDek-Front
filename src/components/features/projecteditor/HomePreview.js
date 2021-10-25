@@ -24,7 +24,7 @@ function HomePreview() {
       </div>
 
       <div
-        className="bg-scroll h-full flex flex-row"
+        className="bg-scroll h-full flex flex-row rounded-lg"
         style={{
           backgroundImage:
             "url(" +
@@ -53,6 +53,7 @@ function HomePreview() {
               </button>
             </div>
             <div className="flex flex-row  my-3">
+              {/* map ได้ */}
               <FaFacebookSquare className="mx-2 text-2xl" /> <FaInstagram className="mx-2 text-2xl" />
               <FaTwitter className="mx-2 text-2xl" /> <FaExternalLinkAlt className="mx-2 text-2xl" />
             </div>

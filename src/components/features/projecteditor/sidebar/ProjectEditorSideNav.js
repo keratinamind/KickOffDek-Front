@@ -52,7 +52,7 @@ const navupdateproject = [
 ];
 function ProjectEditorSideNav() {
   return (
-    <div className="w-96 h-screen bg-gray-200">
+    <div className="w-96 h-screen bg-gray-100 mb-5">
       <div className="py-5 px-5 flex flex-row justify-between items-center">
         <h1 className="">Project Editor</h1>{" "}
         <button className="bg-green-700 text-white rounded-md h-7 w-24">
@@ -78,7 +78,7 @@ function ProjectEditorSideNav() {
         <ul className="py-5">
           {navupdateproject.map((elem) => (
             <li>
-              <div className="flex items-center justify-between my-5 text-green-800">
+              <div className="flex items-center justify-between my-6 text-green-800">
                 <div className="flex">
                   <div className="text-purple-800 text-xl">{elem.icon}</div>
                   <h1 className="mx-3">{elem.name}</h1>

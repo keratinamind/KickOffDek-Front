@@ -1,12 +1,15 @@
 
 import ProjectEditorHome from "../pages/projecteditor/ProjectEditorHome"
 import Homepage from "../pages/Homepage";
+import SetupProject from "../pages/projecteditor/SetupProject";
+import SetupProfile from "../pages/projecteditor/SetupProfile";
 
 const route = {
   user: {
     route: [
+      { path: "/project/setup/project", component: SetupProject },
+      { path: "/project/setup/profile", component: SetupProfile },
       { path: "/project", component: ProjectEditorHome },
-      { path: "/user", component: Homepage },
       { path: "/checkout", component: Homepage},
       { path: "/content", component: Homepage },
       { path: "/contact", component: Homepage },

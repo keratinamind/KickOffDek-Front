@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <>
       {user ? (
-        <nav className="flex justify-between bg-gray-900 text-white w-screen">
+        <nav className="flex justify-between bg-gray-900 text-white w-full">
           <div className="px-5 xl:px-12 py-3 flex w-full items-center justify-between">
             <div className="flex flex-row align-center">
               <img
@@ -47,7 +47,7 @@ function Navbar() {
           </div>
         </nav>
       ) : (
-        <nav className="flex justify-between bg-gray-900 text-white w-screen">
+        <nav className="flex justify-between bg-gray-900 text-white w-full">
           <div className="px-5 xl:px-12 py-3 flex w-full items-center justify-between">
             <div className="flex flex-row align-center">
               <img
@@ -88,7 +88,7 @@ function Navbar() {
         </nav>
       )}
 
-      {user && <nav className="flex justify-between bg-white text-white w-screen">
+      {user && <nav className="flex justify-between bg-white text-white w-full">
           <div className="px-5 xl:px-12 py-3 flex w-full items-center justify-between">
             <div className="flex flex-row align-center">
               <img
