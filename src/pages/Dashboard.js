@@ -1,5 +1,6 @@
 import React from "react";
 import UDHome from "../components/features/user-directory/UDHome";
+import UDPreference from "../components/features/user-directory/UDPreference";
 import UserDirectSideNav from "../components/reuse/UserDirectSideNav";
 
 function Dashboard() {

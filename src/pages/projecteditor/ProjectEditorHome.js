@@ -10,7 +10,6 @@ function ProjectEditor() {
       <div className="flex flex-row">
             <ProjectEditorSideNav/>
             <HomePreview/>
-            
         </div>
     </div>
   );

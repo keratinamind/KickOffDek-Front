@@ -3,6 +3,7 @@ import { FaHome, FaBuromobelexperte } from "react-icons/fa";
 import { AiFillSetting, AiFillMessage } from "react-icons/ai";
 import { MdOutlineSpaceDashboard, MdOutlineCampaign } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
 function UserDirectSideNav() {
   const profilePic = "https://picsum.photos/80/80";
@@ -19,15 +20,21 @@ function UserDirectSideNav() {
       </div>
       <div className="flex justify-start items-center my-4 mx-4 cursor-pointer">
         <FaHome className="mr-2 text-xl" />
-        <h1>Home</h1>
+        <Link to="/dashboard">
+          <h1>Home</h1>
+        </Link>
       </div>
       <div className="flex justify-start items-center my-4 mx-4 cursor-pointer">
         <AiFillSetting className="mr-2 text-xl" />
-        <h1>Preferences</h1>
+        <Link to="/dashboard/preference">
+          <h1>Preferences</h1>
+        </Link>
       </div>
       <div className="flex justify-start items-center my-4 mx-4 cursor-pointer">
         <FaBuromobelexperte className="mr-2 text-xl" />
-        <h1>My pledges</h1>
+        <Link to="/dashboard/mypledge">
+          <h1>My pledges</h1>
+        </Link>
       </div>
       <div className="flex justify-start items-center my-4 mx-4 cursor-pointer">
         <AiFillMessage className="mr-2 text-xl" />
