@@ -1,19 +1,25 @@
 import React from "react";
 import Cardproject from "../../components/reuse/Cardproject";
 import { MdKeyboardBackspace, MdCheck } from "react-icons/md";
+import Navbar from "../../components/reuse/Navbar";
+import { Link } from "react-router-dom";
 
 function ChooseType() {
   const url = "https://picsum.photos/1700/1000";
   return (
+    <>
+    <Navbar />
     <div className="grid grid-cols-12">
       <div className="col-span-3">
         <div className="flex flex-col items-center justify-center py-5 px-2">
           <div className="flex justify-between items-center mb-2">
             <MdKeyboardBackspace className="text-2xl" />
             <h1 className="text-xl font-bold mr-8">Choose Type</h1>
+            <Link to="/create/campaign">
             <button className="py-1 px-4 border border-gray-700 rounded-xl bg-green-700 text-white">
               Next
             </button>
+            </Link>
           </div>
           <div className="border border-gray-500 p-5 mb-2 rounded-lg">
             <h1 className="font-bold">All or Nothing</h1>
@@ -79,6 +85,7 @@ function ChooseType() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

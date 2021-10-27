@@ -1,8 +1,12 @@
 import React from "react";
+import Navbar from "../../components/reuse/Navbar";
+import { Link } from "react-router-dom";
 
 function ProjectCreated() {
   const url = "https://picsum.photos/400/300";
   return (
+    <>
+    <Navbar />
     <div className="w-10/12 mx-auto flex justify-center">
       <div className="flex flex-col items-center">
         <img src={url} alt="" className="my-5" />
@@ -12,13 +16,16 @@ function ProjectCreated() {
           setting up your rewards. Would you like to do it now?
         </h1>
         <div className="flex flex-col">
+          <Link to="/project">
           <button className="border border-gray-500 p-2 my-2 rounded-lg bg-purple-600">
             Go to Project Editor
           </button>
+          </Link>
           <button className="p-2 my-2">Save draft and do it later</button>
         </div>
       </div>
     </div>
+    </>
   );
 }
 

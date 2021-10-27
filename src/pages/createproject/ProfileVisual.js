@@ -1,10 +1,14 @@
 import React from "react";
 import { MdKeyboardBackspace, MdCheck } from "react-icons/md";
 import Cardproject from "../../components/reuse/Cardproject";
+import Navbar from "../../components/reuse/Navbar";
+import { Link } from "react-router-dom";
 
 function ProfileVisual() {
   const url = "https://picsum.photos/1700/1000";
   return (
+    <>
+    <Navbar />
     <div className="grid grid-cols-12">
       <div className="col-span-3">
         <div className="flex flex-col justify-center py-5 px-2">
@@ -13,9 +17,11 @@ function ProfileVisual() {
               <MdKeyboardBackspace className="text-2xl mr-2" />
               <h1 className="text-xl font-bold mr-8">Profile Visuals</h1>
             </div>
+            <Link to="/create/profile">
             <button className="py-1 px-4 border border-gray-700 rounded-xl bg-green-700 text-white">
               Next
             </button>
+            </Link>
           </div>
           <div className="w-10/12 mx-auto flex flex-col">
             <h1 className="my-5">Cover Image</h1>
@@ -58,6 +64,7 @@ function ProfileVisual() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
