@@ -2,7 +2,16 @@ import React from "react";
 import { HiOutlineX } from "react-icons/hi";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 
-function Modalloginpassword({ closeModal }) {
+function Modalloginpassword({ closeModal ,setOpenModal , setOpenModalChangePass }) {
+  
+  const clickToLogin = () => {  
+      closeModal(false);
+      setOpenModal(true);
+    }
+  const clickToResetPassword = () => {  
+      closeModal(false);
+      setOpenModalChangePass(true);
+    }
   return (
     <div className="modalContainer">
       <div
@@ -55,17 +64,15 @@ function Modalloginpassword({ closeModal }) {
           </div>
           <div className="p-3 w-11/12 mx-auto mt-2 text-center space-x-4 md:block">
             <div className="flex justify-between items-center">
-              <div className="flex flex-row items-center">
+              <button className="flex flex-row items-center" onClick={clickToLogin}>
                 <HiOutlineArrowNarrowLeft />
                 <span className="px-5"> Login</span>
+              </button>
+              <div>
+                <button onClick={clickToResetPassword}>Forgot Password?</button>
               </div>
               <div>
-                <span>Forgot Password?</span>
-              </div>
-              <div>
-                <button
-                  className="bg-purple-600 w-full rounded-lg font-semibold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:purple-blue-800 mr-6"
-                >
+                <button className="bg-purple-600 w-full rounded-lg font-semibold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:purple-blue-800 mr-6">
                   Login
                 </button>
               </div>

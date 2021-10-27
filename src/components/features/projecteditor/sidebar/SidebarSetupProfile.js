@@ -1,109 +1,126 @@
 import React from "react";
 import { HiArrowNarrowLeft } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 function SidebarSetupProfile() {
   return (
-    <div>
-      <div className="w-96 h-screen bg-gray-100 mx-5 my-5 mb-5">
-        <div className="flex flex-row items-center">
+    <div className="w-96 h-screen bg-gray-100 mx-5 my-5 mb-5">
+      <div className="flex flex-row items-center">
+        <Link to="/project">
           <HiArrowNarrowLeft className="text-xl mr-3" />
-          <h1 className="font-semibold text-xl">Campaign Details</h1>
+        </Link>
+        <h1 className="font-semibold text-xl">Profile Details</h1>
+      </div>
+      <div className="mt-8">
+        <h1 className="text-sm ">Overview</h1>
+      </div>
+      <div className="flex flex-col py-2 my-2 w-full ">
+        {/* Input Name */}
+        <div className="flex my-2 rounded items-center">
+          <div className="relative flex w-full flex-wrap items-stretch mb-3">
+            <input
+              name="displayname"
+              className="text-sm  rounded px-4 py-2 border border-gray-300 focus:border-indigo-500 w-full focus:outline-none focus:ring-indigo-500"
+              type="text"
+              placeholder="Your name"
+            />
+          </div>
         </div>
-        <div className="mt-8">
-          <h1 className="text-sm ">Overview</h1>
+        {/* Input Name */}
+        <div className="flex my-2 rounded items-center">
+          <div className="relative flex w-full flex-wrap items-stretch mb-3">
+            <input
+              name="hastag"
+              className="text-sm  rounded px-4 py-2 border border-gray-300 focus:border-indigo-500 w-full focus:outline-none focus:ring-indigo-500"
+              type="text"
+              placeholder="Your tagline"
+            />
+          </div>
         </div>
-        <div className="flex flex-col py-4 my-5 w-full ">
-          {/* Input Name */}
-          <div className="flex my-5 rounded items-center">
-            <div className="relative flex w-full flex-wrap items-stretch mb-3">
-              <input
-                type="text"
-                placeholder="Placeholder"
-                className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full pl-10"
-              />
-              <span className="z-40 h-full leading-snug font-normal absolute text-center text-blueGray-300 bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
-                <i className="fas fa-lock"></i>
+        {/* Input Name */}
+        <div className="flex my-2 rounded items-center">
+          <div className="relative flex w-full flex-wrap items-stretch mb-3">
+            <input
+              name="field_name"
+              className="text-sm  rounded px-4 py-2 border border-gray-300 focus:border-indigo-500 w-full focus:outline-none focus:ring-indigo-500"
+              type="text"
+              placeholder="City , Country"
+            />
+          </div>
+        </div>
+
+        {/* Input About  */}
+        <div className="my-2 rounded items-center">
+          <h1 className="text-sm my-3">About</h1>
+          <textarea class="px-2 py-2 text-sm font-normal border border-gray-300 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 rounded w-full h-20"></textarea>
+        </div>
+
+        {/* Input FB  */}
+        <div className="my-2 rounded items-center">
+          <h1 className="text-sm my-3">Social Link</h1>
+          <div className="mt-1 flex flex-row rounded shadow-sm border border-gray-300">
+            <div className=" flex items-center pointer-events-none">
+              <span className="text-gray-700 px-2 sm:text-sm border-r border-gray-500">
+                facebook.com/
               </span>
             </div>
-          </div>
-          {/* Input Name */}
-          <div className="flex flex-row h-10 my-5 border border-gray-300 rounded">
             <input
-              name="field_name"
-              className="text-sm  rounded-l px-4 py-2 w-full focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               type="text"
-              placeholder="Write something here..."
-            ></input>
-            <span className="text-sm text-gray-600 focus: px-4 py-2 whitespace-no-wrap">
-              34/35
-            </span>
+              name="price"
+              id="price"
+              className="h-10 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md"
+              placeholder=""
+            />
           </div>
-          {/* Input Name */}
-          <div className="flex flex-row h-10 my-5 border border-gray-300 rounded">
+        </div>
+        {/* Input IG  */}
+        <div className="my-2 rounded items-center">
+          <div className="mt-1 flex flex-row rounded shadow-sm border border-gray-300">
+            <div className=" flex items-center pointer-events-none">
+              <span className="text-gray-700 px-2 sm:text-sm border-r border-gray-500">
+                @
+              </span>
+            </div>
             <input
-              name="field_name"
-              className="text-sm  rounded-l px-4 py-2 w-full focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               type="text"
-              placeholder="Write something here..."
-            ></input>
-            <span className="text-sm text-gray-600 focus: px-4 py-2 whitespace-no-wrap">
-              34/35
-            </span>
+              name="price"
+              id="price"
+              className="h-10 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md"
+              placeholder="instagram"
+            />
           </div>
-          {/* Input Select Type */}
-          <div className=" my-5">
-            <div class="col-span-6 sm:col-span-4">
-              <select
-                id="vehicle_id"
-                name="vehicle_id"
-                class="mt-1 h-10 block w-full py-2 px-3 text-gray-600 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              >
-                <option value="">Select Project Category</option>
-                <option value="1" data-val="1">
-                  option 1
-                </option>
-                <option value="2" data-val="2">
-                  option 2
-                </option>
-              </select>
+        </div>
+        {/* Input TWIT  */}
+        <div className="my-2 rounded items-center">
+          <div className="mt-1 flex flex-row rounded shadow-sm border border-gray-300">
+            <div className=" flex items-center pointer-events-none">
+              <span className="text-gray-700 px-2 sm:text-sm border-r border-gray-500">
+                @
+              </span>
             </div>
-          </div>
-          {/* Input USD */}
-          <div className="my-5">
-            <div className="mt-1 relative rounded shadow-sm border border-gray-300">
-              <div className="absolute inset-y-0 left-0 pl-3 h-10 flex items-center pointer-events-none">
-                <span className="text-gray-500 sm:text-sm">$</span>
-              </div>
-              <input
-                type="text"
-                name="price"
-                id="price"
-                className="h-10 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
-                placeholder="0.00"
-              />
-              <div className="absolute inset-y-0 right-0 h-10 flex items-center">
-                <label htmlFor="currency" className="sr-only">
-                  Currency
-                </label>
-                <select
-                  id="currency"
-                  name="currency"
-                  className="focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
-                >
-                  <option>USD</option>
-                  <option>CAD</option>
-                  <option>EUR</option>
-                  <option>THB</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          {/* Input Date */}
-          <div className="flex flex-row my-5">
             <input
-              type="date"
-              placeholder="date...."
-              className="border border-gray-300 text-sm text-gray-600 w-full p-2 my-2 h-10 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              type="text"
+              name="price"
+              id="price"
+              className="h-10 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md"
+              placeholder="twitter"
+            />
+          </div>
+        </div>
+        {/* Input web url  */}
+        <div className="my-2 rounded items-center">
+          <div className="mt-1 flex flex-row rounded shadow-sm border border-gray-300">
+            <div className=" flex items-center pointer-events-none">
+              <span className="text-gray-700 px-2 sm:text-sm border-r border-gray-500">
+                http://
+              </span>
+            </div>
+            <input
+              type="text"
+              name="price"
+              id="price"
+              className="h-10 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md"
+              placeholder="Website"
             />
           </div>
         </div>

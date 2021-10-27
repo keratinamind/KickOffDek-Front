@@ -1,6 +1,5 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import Footer from "./components/reuse/Footer";
-import Navbar from "./components/reuse/Navbar";
+
 import "./App.css";
 import route from "./config/routes";
 
@@ -12,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        
         <Switch>
           {route[role].route.map((elem, idx) => (
             <Route
@@ -24,7 +23,7 @@ function App() {
           ))}
           <Redirect to={route[role].redirect} />
         </Switch>
-        <Footer />
+        
       </BrowserRouter>
     </div>
   );

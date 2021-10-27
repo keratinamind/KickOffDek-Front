@@ -1,10 +1,24 @@
 import React from "react";
 import { HiOutlineX } from "react-icons/hi";
-import { FaFacebookSquare } from "react-icons/fa";
-import { FaApple } from "react-icons/fa";
+
 import { FaGofore } from "react-icons/fa";
 
-function ModalLogin({ closeModal }) {
+function ModalLogin({
+  closeModal,
+
+  setOpenModalPassword,
+  setOpenModalCreate,
+}) {
+  const clickToModalPassword = () => {
+    const haveAccount = true;
+    if (haveAccount) {
+      closeModal(false);
+      setOpenModalPassword(true);
+    } else {
+      closeModal(false);
+      setOpenModalCreate(true);
+    }
+  };
   return (
     <div className="modalContainer">
       <div
@@ -14,23 +28,21 @@ function ModalLogin({ closeModal }) {
         <div className="absolute backdrop-filter backdrop-blur-lg  inset-0 z-0"></div>
         <div className="w-150  p-3 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
           <div className="text-center p-3 flex-auto justify-center">
-            <HiOutlineX className="text-gray-900 absolute right-7 hover:text-red-800" onClick={()=> closeModal(false)}/>
+            <HiOutlineX
+              className="text-gray-900 absolute right-7 hover:text-red-800"
+              onClick={() => closeModal(false)}
+            />
             <h2 className="text-2xl py-4 text-gray-900 ">
               Enter your email to login or register
             </h2>
             <div className="flex flex-row mx-auto justify-center text-xl items-center text-purple-800">
               <div>
-                <div className="flex flex-row mx-auto justify-center py-3">
-                  <FaFacebookSquare />
-                  <p className="text-sm px-3 font-semibold ">Login with Facbook</p>
-                </div>
+                
                 <div className="flex flex-row mx-auto justify-center py-3">
                   <FaGofore />
-                  <p className="text-sm px-3 font-semibold">Login with Google</p>
-                </div>
-                <div className="flex flex-row mx-auto justify-center py-3">
-                  <FaApple />
-                  <p className="text-sm px-3 font-semibold">Login with Apple</p>
+                  <p className="text-sm px-3 font-semibold">
+                    Login with Google
+                  </p>
                 </div>
                 
               </div>
@@ -56,11 +68,12 @@ function ModalLogin({ closeModal }) {
                   Must be a valid email address
                 </p>
                 <div className="flex items-end">
-                  <div
-                    className="bg-purple-600 rounded-lg font-semibold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:purple-blue-800 mr-6"
+                  <button
+                    className="relative left-24 bg-purple-600 rounded-lg font-semibold text-white text-center mt-10 px-2 py-2 w-24 transition duration-300 ease-in-out hover:purple-blue-800 mr-6"
+                    onClick={clickToModalPassword}
                   >
-                    Click here
-                  </div>
+                    Login
+                  </button>
                 </div>
               </div>
             </div>

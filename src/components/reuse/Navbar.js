@@ -3,7 +3,7 @@ import img from "../../images/KICKOFFDEK (2).png";
 import { HiSearch } from "react-icons/hi";
 
 function Navbar() {
-  const user = true;
+  const user = false;
   return (
     <>
       {user ? (
@@ -15,7 +15,6 @@ function Navbar() {
                 src={img}
                 alt="logo"
               />
-
               <ul className="hidden md:flex px-4 mx-auto items-center font-heading space-x-12">
                 <li>
                   <span className="hover:text-gray-200">Explore</span>

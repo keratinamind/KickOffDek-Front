@@ -1,14 +1,14 @@
 import React from 'react'
-import Description from '../../components/features/projecteditor/Description'
+import UpdateProject from '../../components/features/projecteditor/UpdateProject'
 import NavProjectEditor from '../../components/reuse/NavProjectEditor'
 
-function SetupDescription() {
+function ManageUpdate() {
     return (
         <div className="h-screen">
             <NavProjectEditor />
-            <Description />
+            <UpdateProject />
         </div>
     )
 }
 
-export default SetupDescription
+export default ManageUpdate

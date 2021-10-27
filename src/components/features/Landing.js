@@ -20,7 +20,14 @@ function Landing() {
         >
           Open Modal 1st
         </button>
-        {openModal && <ModalLogin closeModal={setOpenModal} />}
+        {openModal && (
+          <ModalLogin
+            closeModal={setOpenModal}
+            
+            setOpenModalPassword={setOpenModalPassword}
+            setOpenModalCreate={setOpenModalCreate}
+          />
+        )}
         <button
           className="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center hover:bg-purple-300"
           onClick={() => setOpenModalPassword(true)}
@@ -28,7 +35,7 @@ function Landing() {
           Open Modal password
         </button>
         {openModalPassword && (
-          <Modalloginpassword closeModal={setOpenModalPassword} />
+          <Modalloginpassword closeModal={setOpenModalPassword} setOpenModal={setOpenModal} setOpenModalChangePass={setOpenModalChangePass} />
         )}
         <button
           className="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center hover:bg-purple-300"
@@ -37,7 +44,7 @@ function Landing() {
           Open Create
         </button>
         {openModalCreate && (
-          <Modallogincreate closeModal={setOpenModalCreate} />
+          <Modallogincreate closeModal={setOpenModalCreate} setOpenModal={setOpenModal} />
         )}
         <button
           className="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center hover:bg-purple-300"

@@ -1,11 +1,14 @@
 import React from "react";
 import { HiArrowNarrowLeft } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 function SidebarSetupProject() {
   return (
     <div className="w-96 h-screen bg-gray-100 mx-5 my-5 mb-5">
       <div className="flex flex-row items-center">
-        <HiArrowNarrowLeft className="text-xl mr-3" />
+        <Link to="/project">
+          <HiArrowNarrowLeft className="text-xl mr-3" />
+        </Link>
         <h1 className="font-semibold text-xl">Campaign Details</h1>
       </div>
       <div className="mt-8">
@@ -32,12 +35,12 @@ function SidebarSetupProject() {
               name="vehicle_id"
               class="mt-1 h-10 block w-full py-2 px-3 text-gray-600 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             >
-              <option value="">Select Project Category</option>
+              <option value="">Select Currency</option>
               <option value="1" data-val="1">
-                option 1
+                USD
               </option>
               <option value="2" data-val="2">
-                option 2
+                THB
               </option>
             </select>
           </div>
@@ -55,21 +58,6 @@ function SidebarSetupProject() {
               className="h-10 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
               placeholder="0.00"
             />
-            <div className="absolute inset-y-0 right-0 h-10 flex items-center">
-              <label htmlFor="currency" className="sr-only">
-                Currency
-              </label>
-              <select
-                id="currency"
-                name="currency"
-                className="focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
-              >
-                <option>USD</option>
-                <option>CAD</option>
-                <option>EUR</option>
-                <option>THB</option>
-              </select>
-            </div>
           </div>
         </div>
         {/* Input Date */}

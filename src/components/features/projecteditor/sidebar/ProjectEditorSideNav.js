@@ -1,52 +1,55 @@
 import React from "react";
-import { BsCheck2Circle , BsChevronRight , BsFillPeopleFill ,BsFillPersonFill ,BsFillLightningChargeFill ,BsCurrencyDollar} from "react-icons/bs";
-import { HiOutlineShare} from "react-icons/hi";
+import {
+  BsCheck2Circle,
+  BsChevronRight,
+  BsFillPersonFill,
+  BsCurrencyDollar,
+} from "react-icons/bs";
+import { HiOutlineShare } from "react-icons/hi";
+import { Link } from "react-router-dom";
 const naveditor = [
   {
     name: "Campaigns Details",
+    link: "/project/setup/project",
   },
   {
     name: "Profile Details",
+    link: "/project/setup/profile",
   },
   {
     name: "Visuals",
+    link: "/project/setup/visual",
   },
   {
     name: "Descriptions",
+    link: "/project/setup/description",
   },
   {
     name: "Rewards",
+    link: "/project/setup/rewards",
   },
   {
     name: "Payments",
+    link: "/project/setup/payment",
   },
   {
     name: "Launch",
+    link: "/project/setup/summary",
   },
 ];
 const navupdateproject = [
   {
-    icon: <BsFillPeopleFill/>,
-    name: "Team"
-  },
-  {
-    icon: <BsFillPersonFill/>,
+    icon: <BsFillPersonFill />,
     name: "Supporters",
   },
   {
-    icon: <HiOutlineShare/>,
+    icon: <HiOutlineShare />,
     name: "Updates",
+    link: "/project/update",
   },
+
   {
-    icon: <BsFillLightningChargeFill/>,
-    name: "Descriptions",
-  },
-  {
-    icon: <BsFillLightningChargeFill/>,
-    name: "Stretch Goal",
-  },
-  {
-    icon: <BsCurrencyDollar/>,
+    icon: <BsCurrencyDollar />,
     name: "Payments",
   },
 ];
@@ -63,29 +66,33 @@ function ProjectEditorSideNav() {
         <h1 className=" text-gray-800">Edit</h1>
         <ul className="py-5">
           {naveditor.map((elem) => (
-            <li>
-              <div className="flex items-center justify-between my-8 text-green-800 hover:bg-green-200">
-                <div className="flex">
-                  <BsCheck2Circle className="text-purple-800 text-xl" />
-                  <h1 className="mx-3">{elem.name}</h1>
+            <Link to={elem.link}>
+              <li>
+                <div className="flex items-center justify-between my-8 text-green-800 hover:bg-green-200">
+                  <div className="flex">
+                    <BsCheck2Circle className="text-purple-800 text-xl" />
+                    <h1 className="mx-3">{elem.name}</h1>
+                  </div>
+                  <BsChevronRight className="text-xl" />
                 </div>
-                <BsChevronRight className="text-xl"/>
-              </div>
-            </li>
+              </li>
+            </Link>
           ))}
         </ul>
         <h1 className="py-5 ">Manage</h1>
         <ul className="py-5">
           {navupdateproject.map((elem) => (
-            <li>
-              <div className="flex items-center justify-between my-6 text-green-800">
-                <div className="flex">
-                  <div className="text-purple-800 text-xl">{elem.icon}</div>
-                  <h1 className="mx-3">{elem.name}</h1>
+            <Link to={elem.link}>
+              <li>
+                <div className="flex items-center justify-between my-6 text-green-800">
+                  <div className="flex">
+                    <div className="text-purple-800 text-xl">{elem.icon}</div>
+                    <h1 className="mx-3">{elem.name}</h1>
+                  </div>
+                  <BsChevronRight className="text-xl" />
                 </div>
-                <BsChevronRight className="text-xl"/>
-              </div>
-            </li>
+              </li>
+            </Link>
           ))}
         </ul>
       </div>
