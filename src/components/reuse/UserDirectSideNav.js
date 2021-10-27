@@ -36,24 +36,15 @@ function UserDirectSideNav() {
           <h1>My pledges</h1>
         </Link>
       </div>
-      <div className="flex justify-start items-center my-4 mx-4 cursor-pointer">
-        <AiFillMessage className="mr-2 text-xl" />
-        <h1>My messeges</h1>
-      </div>
+
       <div className="flex justify-start items-center my-4 mx-4 cursor-pointer">
         <h1 className="font-bold text-l">Creating</h1>
       </div>
       <div className="flex justify-start items-center my-4 mx-4 cursor-pointer">
         <MdOutlineSpaceDashboard className="mr-2 text-xl" />
-        <h1>Creator Dashboard</h1>
-      </div>
-      <div className="flex justify-start items-center my-4 mx-4 cursor-pointer">
-        <CgProfile className="mr-2 text-xl" />
-        <h1>Manage profile</h1>
-      </div>
-      <div className="flex justify-start items-center my-4 mx-4 cursor-pointer">
-        <MdOutlineCampaign className="mr-2 text-xl" />
-        <h1>My campaign</h1>
+        <Link to="/dashboard/creator">
+          <h1>Creator Dashboard</h1>
+        </Link>
       </div>
     </div>
   );

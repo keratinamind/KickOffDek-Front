@@ -24,6 +24,9 @@ import ProfileVisual from "../pages/createproject/ProfileVisual";
 import ProfileDetails from "../pages/createproject/ProfileDetails";
 import ProjectCreated from "../pages/createproject/ProjectCreated";
 import Project from "../pages/Project";
+import CreatorDB from "../components/features/user-directory/CreatorDB";
+import ProjectActivity from "../pages/ProjectActivity";
+import ProjectCommunity from "../pages/ProjectCommunity";
 
 const route = {
   user: {
@@ -46,7 +49,10 @@ const route = {
       //I added these path
       { path: "/dashboard/preference", component: Preference },
       { path: "/dashboard/mypledge", component: MyPledges },
+      { path: "/dashboard/creator", component: CreatorDB },
       { path: "/dashboard", component: Dashboard },
+      { path: "/explore/project/activity", component: ProjectActivity },
+      { path: "/explore/project/community", component: ProjectCommunity },
       { path: "/explore/project", component: Project },
       { path: "/explore", component: Category },
 
