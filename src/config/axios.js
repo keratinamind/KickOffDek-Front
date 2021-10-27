@@ -1,6 +1,6 @@
 import axios from "axios";
+import { getToken, removeToken } from "../helpers/localStorage";
 import { API_URL } from "./env";
-import { getToken, removeToken } from "../services/localStorage";
 
 axios.defaults.baseURL = API_URL;
 

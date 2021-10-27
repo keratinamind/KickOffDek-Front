@@ -24,6 +24,7 @@ function HomePreview() {
             console.dir(err);
         }
     }, []);
+    
   return (
     <div className="flex flex-col w-full">
       <div className="flex justify-end mx-3 my-5">
