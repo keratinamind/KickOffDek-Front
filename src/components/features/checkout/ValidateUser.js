@@ -2,7 +2,7 @@ import React from 'react'
 
 function ValidateUser() {
     return (
-        <div className="w-144 h-72 rounded-xl border border-gray-300 shadow-lg px-10">
+        <div className="w-144 h-72 rounded-xl border border-gray-300 shadow-lg px-10 my-3">
             <h1 className="my-5">Your are current Login as</h1>
             <h1 className="h-16 w-16 rounded-full bg-green-900 text-white flex items-center justify-center">LOL</h1>
             <h1 className="my-5">The Guy You Know</h1>
