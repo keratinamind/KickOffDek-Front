@@ -1,7 +1,11 @@
 import React from "react";
+import Navbar from "../../components/reuse/Navbar";
+import { Link } from "react-router-dom";
 
 function VerifyUser() {
   return (
+    <>
+    <Navbar />
     <div className="grid grid-cols-12">
       <div className="col-span-3">
         <div className="flex flex-col items-center justify-center py-20">
@@ -22,12 +26,15 @@ function VerifyUser() {
           <p className="py-2">
             If this isn't you - sign-in with a different account
           </p>
+          <Link to="/create/type">
           <button className="py-1 px-4 border border-gray-700 rounded-xl bg-purple-600 text-white">
             Next
           </button>
+          </Link>
         </div>
       </div>
     </div>
+    </>
   );
 }
 

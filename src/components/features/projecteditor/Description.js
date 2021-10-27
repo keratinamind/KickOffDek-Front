@@ -2,7 +2,7 @@ import { useState } from "react";
 // import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import DecoupledEditor from "@ckeditor/ckeditor5-build-decoupled-document";
 import { HiArrowNarrowLeft } from "react-icons/hi";
-
+import { Link } from "react-router-dom";
 import { CKEditor, CKFinder } from "@ckeditor/ckeditor5-react";
 
 const editorConfiguration = {
@@ -20,10 +20,12 @@ function Description() {
   const [text2, setText2] = useState("");
   return (
     <>
-      <div className="mx-5 my-5 mb-5 flex flex-row items-center">
-        <HiArrowNarrowLeft className="text-xl mr-3" />
-        <h1 className="font-semibold text-md">Visuals</h1>
-      </div>
+      <Link to="/project">
+        <div className="mx-5 my-5 mb-5 flex flex-row items-center">
+          <HiArrowNarrowLeft className="text-xl mr-3" />
+          <h1 className="font-semibold text-md">Visuals</h1>
+        </div>
+      </Link>
       <div className="flex flex-col align-center items-center">
         <div className="">
           <h1>STORY & PROJECT OUTLINE</h1>
@@ -31,10 +33,14 @@ function Description() {
           <p>{text}</p>
           <div
             className="editor w-192"
-            style={{ margin: "3rem", border: "1px gray solid" , borderRadius: "3px" ,padding: "1px" }}
+            style={{
+              margin: "3rem",
+              border: "1px gray solid",
+              borderRadius: "3px",
+              padding: "1px",
+            }}
           >
             <CKEditor
-              
               editor={DecoupledEditor}
               config={editorConfiguration}
               data={text}
@@ -78,10 +84,14 @@ function Description() {
           <p>{text2}</p>
           <div
             className="editor w-192"
-            style={{ margin: "3rem", border: "1px gray solid" , borderRadius: "3px" ,padding: "1px" }}
+            style={{
+              margin: "3rem",
+              border: "1px gray solid",
+              borderRadius: "3px",
+              padding: "1px",
+            }}
           >
             <CKEditor
-              
               editor={DecoupledEditor}
               config={editorConfiguration}
               data={text2}

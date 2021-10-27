@@ -1,60 +1,15 @@
 import React from "react";
 import Cardproject from "../reuse/Cardproject";
-import ModalLogin from "./login/ModalLogin";
-import { useState } from "react";
-import Modalchangepassword from "./login/ModalChangePassword";
-import Modallogincreate from "./login/ModalLoginCreate";
-import Modalloginpassword from "./login/ModalLoginPassword";
+
+// import { useState } from "react";
+
 
 function Landing() {
-  const [openModal, setOpenModal] = useState(false);
-  const [openModalPassword, setOpenModalPassword] = useState(false);
-  const [openModalCreate, setOpenModalCreate] = useState(false);
-  const [openModalChangePass, setOpenModalChangePass] = useState(false);
+  
   return (
     <>
       <div className="px-10 py-10 mx-5">
-        <button
-          className="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center hover:bg-purple-300"
-          onClick={() => setOpenModal(true)}
-        >
-          Open Modal 1st
-        </button>
-        {openModal && (
-          <ModalLogin
-            closeModal={setOpenModal}
-            
-            setOpenModalPassword={setOpenModalPassword}
-            setOpenModalCreate={setOpenModalCreate}
-          />
-        )}
-        <button
-          className="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center hover:bg-purple-300"
-          onClick={() => setOpenModalPassword(true)}
-        >
-          Open Modal password
-        </button>
-        {openModalPassword && (
-          <Modalloginpassword closeModal={setOpenModalPassword} setOpenModal={setOpenModal} setOpenModalChangePass={setOpenModalChangePass} />
-        )}
-        <button
-          className="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center hover:bg-purple-300"
-          onClick={() => setOpenModalCreate(true)}
-        >
-          Open Create
-        </button>
-        {openModalCreate && (
-          <Modallogincreate closeModal={setOpenModalCreate} setOpenModal={setOpenModal} />
-        )}
-        <button
-          className="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center hover:bg-purple-300"
-          onClick={() => setOpenModalChangePass(true)}
-        >
-          Open Modal Change Password
-        </button>
-        {openModalChangePass && (
-          <Modalchangepassword closeModal={setOpenModalChangePass} />
-        )}
+        
       </div>
 
       <div className="bg-black text-white py-20">

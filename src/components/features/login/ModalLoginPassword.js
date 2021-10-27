@@ -64,12 +64,12 @@ function Modalloginpassword({ closeModal ,setOpenModal , setOpenModalChangePass 
           </div>
           <div className="p-3 w-11/12 mx-auto mt-2 text-center space-x-4 md:block">
             <div className="flex justify-between items-center">
-              <button className="flex flex-row items-center" onClick={clickToLogin}>
+              <button className="flex flex-row items-center text-green-800" onClick={clickToLogin}>
                 <HiOutlineArrowNarrowLeft />
                 <span className="px-5"> Login</span>
               </button>
               <div>
-                <button onClick={clickToResetPassword}>Forgot Password?</button>
+                <button className="text-green-800" onClick={clickToResetPassword}>Forgot Password?</button>
               </div>
               <div>
                 <button className="bg-purple-600 w-full rounded-lg font-semibold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:purple-blue-800 mr-6">
