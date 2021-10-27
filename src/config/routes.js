@@ -24,6 +24,8 @@ import ProfileVisual from "../pages/createproject/ProfileVisual";
 import ProfileDetails from "../pages/createproject/ProfileDetails";
 import ProjectCreated from "../pages/createproject/ProjectCreated";
 import Project from "../pages/Project";
+import ProfileEdit from "../pages/profileeditor/ProfileEdit";
+import ProfilePreview from "../pages/ProfilePreview";
 
 const route = {
   user: {
@@ -57,6 +59,8 @@ const route = {
       { path: "/create/profile", component: ProfileDetails },
       { path: "/create/finish", component: ProjectCreated },
       //added till here
+      { path: "/user/profile/manage", component: ProfileEdit },
+      { path: "/user/profile/preview", component: ProfilePreview },
       { path: "/user", component: Homepage },
       { path: "/checkout", component: Homepage },
       { path: "/content", component: Homepage },
