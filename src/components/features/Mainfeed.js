@@ -1,31 +1,77 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Cardproject from "../reuse/Cardproject";
+import axios from "axios";
 
 function Mainfeed() {
+  const url = "http://localhost:8888";
+  const [currentFeed, setCurrentFeed] = useState([]);
+  const [category, setCategory] = useState();
+
+  useEffect(() => {
+    try {
+      const fetchProject = async () => {
+        const res = await axios.get(`${url}/projects/get-all`);
+
+        setCurrentFeed(res.data);
+      };
+      fetchProject();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  const filteredFeed = currentFeed.filter((item) => {
+    return item.Category.name === category || item.Category.name === null;
+  });
+
   return (
     <>
       <div className="grid grid-cols-12 py-10 w-10/12 mx-auto">
         <div className="col-span-10">
           <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Catagory 1
+            Art &amp; Craft
           </button>
           <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Catagory 2
+            Community &amp; Social goods
           </button>
           <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Catagory 3
+            Design &amp; Fashion
           </button>
           <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Catagory 4
+            Environmental
           </button>
           <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Catagory 5
+            Events
           </button>
           <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Catagory 6
+            Film &amp; Video
           </button>
           <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Catagory 7
+            Food &amp; Drinks
+          </button>
+          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+            Music
+          </button>
+          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+            Performance
+          </button>
+          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+            Photography
+          </button>
+          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+            Publishing
+          </button>
+          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+            Research
+          </button>
+          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+            Social Enterprise
+          </button>
+          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+            Sport
+          </button>
+          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+            Tech &amp; Games
           </button>
         </div>
         <div className="col-span-2">
@@ -39,8 +85,13 @@ function Mainfeed() {
           <h1 className="font-extrabold text-lg">Trending Projects</h1>
         </div>
         <div className="grid grid-cols-3">
-          {/* map array here */}
-          <div className="m-2 pb-4">
+          {currentFeed.map((item, idx) => (
+            <div className="m-2 pb-4" key={idx}>
+              <Cardproject {...item} />
+            </div>
+          ))}
+
+          {/* <div className="m-2 pb-4">
             <Cardproject />
           </div>
           <div className="m-2 pb-4">
@@ -60,7 +111,7 @@ function Mainfeed() {
           </div>
           <div className="m-2 pb-4">
             <Cardproject />
-          </div>
+          </div> */}
         </div>
         <div className="flex justify-center mb-10">
           <button className="border border-black bg-purple-600 rounded-md p-3 text-white">
