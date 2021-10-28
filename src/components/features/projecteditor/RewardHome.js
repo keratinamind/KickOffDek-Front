@@ -25,7 +25,7 @@ function RewardHome() {
         <div>
             <div className="flex justify-between mt-7 mx-5">
                 <div className="flex flex-row items-center">
-                    <Link to="/project">
+                    <Link to={{ pathname: "/project", state: { projectId: project.id } }}>
                         <HiArrowNarrowLeft className="text-xl mr-3" />
                     </Link>
                     <h1 className="font-semibold text-xl">Campaign Details</h1>

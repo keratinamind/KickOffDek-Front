@@ -8,7 +8,7 @@ function SidebarSetupProfile() {
   return (
     <div className="w-96 h-screen bg-gray-100 mx-5 my-5 mb-5">
       <div className="flex flex-row items-center">
-        <Link to="/project">
+        <Link to={{ pathname: "/project", state: { projectId: project.id } }}>
           <HiArrowNarrowLeft className="text-xl mr-3" />
         </Link>
         <h1 className="font-semibold text-xl">Profile Details</h1>

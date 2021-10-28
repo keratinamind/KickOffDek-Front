@@ -22,7 +22,7 @@ function SidebarSetupProject() {
     return (
         <div className="w-96 h-screen bg-gray-100 mx-5 my-5 mb-5">
             <div className="flex flex-row items-center">
-                <Link to={{ pathname: "/project" }}>
+                <Link to={{ pathname: "/project", state: { projectId: project.id } }}>
                     <HiArrowNarrowLeft className="text-xl mr-3" />
                 </Link>
                 <h1 className="font-semibold text-xl">Campaign Details</h1>
@@ -82,7 +82,7 @@ function SidebarSetupProject() {
                         type="date"
                         placeholder="date...."
                         className="border border-gray-300 text-sm text-gray-600 w-full p-2 my-2 h-10 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                        value={project.endDate.slice(0, 10)}
+                        value={project.endDate?.slice(0, 10)}
                     />
                 </div>
             </div>
