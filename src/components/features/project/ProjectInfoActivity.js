@@ -1,25 +1,33 @@
-import React from "react";
+import axios from "../../../config/axios";
+import React, { useEffect, useState } from "react";
 import ActivityCard from "./ActivityCard";
-import CampaignCard from "./CampaignCard";
+import RewardBar from "./RewardBar";
 
 function ProjectInfoActivity() {
-  return (
-    <div className="grid grid-cols-4 w-10/12 mx-auto">
-      <div className="col-span-3 mr-4">
-        <ActivityCard />
-        <ActivityCard />
-        <ActivityCard />
-      </div>
-      <div className="col-span-1">
-        <div className="flex justify-evenly flex-col items-center mb-10">
-          <h1 className="my-2 text-2xl font-bold">Campaign</h1>
-          <CampaignCard className="mb-5" />
-          <CampaignCard className="mb-5" />
-          <CampaignCard className="mb-5" />
+    const [activities, setActivities] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get(`/updates/get-by-project-id/${6}`)
+            .then((res) => {
+                setActivities(res.data);
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.dir(err);
+            });
+    }, []);
+
+    return (
+        <div className="grid grid-cols-4 w-10/12 mx-auto">
+            <div className="col-span-3 mr-4">
+                {activities.map((elem) => (
+                    <ActivityCard key={elem.id} {...elem} />
+                ))}
+            </div>
+            <RewardBar />
         </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default ProjectInfoActivity;

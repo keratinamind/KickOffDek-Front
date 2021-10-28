@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaHome, FaBuromobelexperte } from "react-icons/fa";
 import { AiFillSetting, AiFillMessage } from "react-icons/ai";
 import { MdOutlineSpaceDashboard, MdOutlineCampaign } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { removeToken } from "../../helpers/localStorage";
+import axios from "../../config/axios";
 
 function UserDirectSideNav() {
-    const profilePic = "https://picsum.photos/80/80";
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        axios
+            .get("/users/get-user")
+            .then((res) => {
+                setUser(res.data);
+            })
+            .catch((err) => {
+                console.dir(err);
+            });
+    }, []);
+
     return (
         <div>
-            <div className="flex justify-center items-center my-4 -ml-28">
-                <div>
-                    <img src={profilePic} alt="" className="rounded-full" />
-                </div>
+            <div className="flex justify-center items-center my-4 -ml-20">
+                <Link to="/user/profile/manage">
+                    <img src={user?.avatar} alt="" className="rounded-full w-20" />
+                </Link>
                 <div className="mx-4">
-                    <p>Ajarn Dang</p>
+                    <p className="text-2xl">{user.username}</p>
                     <button
                         onClick={() => {
                             removeToken();

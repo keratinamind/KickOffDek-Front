@@ -1,16 +1,12 @@
 import React from "react";
 
-function ActivityCard() {
+function ActivityCard({ title, message, updatedAt }) {
   return (
     <div className="flex justify-start flex-col border border-gray-500 rounded-lg w-10/12 mx-auto p-5 m-5">
-      <p>2021-10-30</p>
-      <h1 className="text-xl font-bold">One week to go!</h1>
-      <p>Activities description goes here</p>
+      <p>{updatedAt.slice(0, 10)}</p>
+      <h1 className="text-xl font-bold">{title}</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim nostrum
-        totam maiores deserunt ducimus repellendus eos aut alias doloremque
-        quis? Soluta laudantium voluptas amet sunt nobis ullam quia nulla
-        deleniti.
+        {message}
       </p>
       <hr className="m-2" />
       <div>

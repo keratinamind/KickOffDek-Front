@@ -84,6 +84,10 @@ const route = {
 
   guest: {
     route: [
+      { path: "/explore/project/activity", component: ProjectActivity },
+      { path: "/explore/project/community", component: ProjectCommunity },
+      { path: "/explore/project", component: Project },
+      { path: "/explore", component: Category },
       { path: "/login", component: Homepage },
       { path: "/register", component: Homepage },
       { path: "/about", component: Homepage },

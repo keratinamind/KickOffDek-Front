@@ -1,126 +1,108 @@
 import React, { useEffect, useState } from "react";
 import Cardproject from "../reuse/Cardproject";
 import axios from "axios";
+import { useHistory } from "react-router";
 
 function Mainfeed() {
-  const url = "http://localhost:8888";
-  const [currentFeed, setCurrentFeed] = useState([]);
-  const [category, setCategory] = useState();
+    const url = "http://localhost:8888";
+    const [currentFeed, setCurrentFeed] = useState([]);
+    const [category, setCategory] = useState();
+    const history = useHistory();
 
-  useEffect(() => {
-    try {
-      const fetchProject = async () => {
-        const res = await axios.get(`${url}/projects/get-all`);
+    useEffect(() => {
+        try {
+            const fetchProject = async () => {
+                const res = await axios.get(`${url}/projects/get-all`);
 
-        setCurrentFeed(res.data);
-      };
-      fetchProject();
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+                setCurrentFeed(res.data);
+            };
+            fetchProject();
+        } catch (error) {
+            console.log(error);
+        }
+    }, []);
 
-  const filteredFeed = currentFeed.filter((item) => {
-    return item.Category.name === category || item.Category.name === null;
-  });
+    const clickToProject = (id) => {
+        history.push("/explore/project", { projectId: id });
+    };
 
-  return (
-    <>
-      <div className="grid grid-cols-12 py-10 w-10/12 mx-auto">
-        <div className="col-span-10">
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Art &amp; Craft
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Community &amp; Social goods
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Design &amp; Fashion
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Environmental
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Events
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Film &amp; Video
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Food &amp; Drinks
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Music
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Performance
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Photography
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Publishing
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Research
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Social Enterprise
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Sport
-          </button>
-          <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
-            Tech &amp; Games
-          </button>
-        </div>
-        <div className="col-span-2">
-          <button className="m-2 p-1.5 rounded-md border border-black hover:text-white hover:bg-gray-900">
-            Trending
-          </button>
-        </div>
-      </div>
-      <div className="w-10/12 mx-auto">
-        <div className="flex justify-center mb-10">
-          <h1 className="font-extrabold text-lg">Trending Projects</h1>
-        </div>
-        <div className="grid grid-cols-3">
-          {currentFeed.map((item, idx) => (
-            <div className="m-2 pb-4" key={idx}>
-              <Cardproject {...item} />
+    const filteredFeed = currentFeed.filter((item) => {
+        return item.Category.name === category || item.Category.name === null;
+    });
+
+    return (
+        <>
+            <div className="grid grid-cols-12 py-10 w-10/12 mx-auto">
+                <div className="col-span-10">
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Art &amp; Craft
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Community &amp; Social goods
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Design &amp; Fashion
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Environmental
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Events
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Film &amp; Video
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Food &amp; Drinks
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Music
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Performance
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Photography
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Publishing
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Research
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Social Enterprise
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Sport
+                    </button>
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:bg-purple-600 hover:text-white">
+                        Tech &amp; Games
+                    </button>
+                </div>
+                <div className="col-span-2">
+                    <button className="m-2 p-1.5 rounded-md border border-black hover:text-white hover:bg-gray-900">
+                        Trending
+                    </button>
+                </div>
             </div>
-          ))}
-
-          {/* <div className="m-2 pb-4">
-            <Cardproject />
-          </div>
-          <div className="m-2 pb-4">
-            <Cardproject />
-          </div>
-          <div className="m-2 pb-4">
-            <Cardproject />
-          </div>
-          <div className="m-2 pb-4">
-            <Cardproject />
-          </div>
-          <div className="m-2 pb-4">
-            <Cardproject />
-          </div>
-          <div className="m-2 pb-4">
-            <Cardproject />
-          </div>
-          <div className="m-2 pb-4">
-            <Cardproject />
-          </div> */}
-        </div>
-        <div className="flex justify-center mb-10">
-          <button className="border border-black bg-purple-600 rounded-md p-3 text-white">
-            Load more
-          </button>
-        </div>
-      </div>
-    </>
-  );
+            <div className="w-10/12 mx-auto">
+                <div className="flex justify-center mb-10">
+                    <h1 className="font-extrabold text-lg">Trending Projects</h1>
+                </div>
+                <div className="grid grid-cols-3">
+                    {currentFeed.map((item, idx) => (
+                        <div className="m-2 pb-4" key={idx} onClick={() => clickToProject(item.id)}>
+                            <Cardproject {...item} />
+                        </div>
+                    ))}
+                </div>
+                <div className="flex justify-center mb-10">
+                    <button className="border border-black bg-purple-600 rounded-md p-3 text-white">Load more</button>
+                </div>
+            </div>
+        </>
+    );
 }
 
 export default Mainfeed;

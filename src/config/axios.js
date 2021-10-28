@@ -19,7 +19,7 @@ axios.interceptors.response.use(
     (err) => {
         if (err.response && err.response.status === 401) {
             removeToken();
-            window.location.reload();
+            // window.location.reload();
             return;
         }
         return Promise.reject(err);

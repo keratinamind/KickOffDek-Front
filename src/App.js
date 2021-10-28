@@ -4,9 +4,10 @@ import "./App.css";
 import route from "./config/routes";
 import AppProvider from "./contexts/AppContext";
 import EditorProvider from "./contexts/EditorContext";
+import { getToken } from "./helpers/localStorage";
 
 function App() {
-    const role = "user";
+    const role = getToken() ? "user" : "guest";
     return (
         <div className="App">
             <BrowserRouter>
