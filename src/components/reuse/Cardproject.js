@@ -40,6 +40,7 @@ function Cardproject({ id, target, campaignImage, title }) {
           src={campaignImage}
         />
         <div className="bg-white w-full p-4 flex flex-col pt-8">
+          <h1 className="font-bold">{title}</h1>
           <div className="w-full h-4 bg-blue-200 rounded-full">
             <div className="w-2/3 h-full text-center text-xs text-white bg-blue-600 rounded-full"></div>
           </div>
