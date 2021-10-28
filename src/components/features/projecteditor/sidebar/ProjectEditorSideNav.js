@@ -48,7 +48,7 @@ const navupdateproject = [
         name: "Payments",
     },
 ];
-function ProjectEditorSideNav() {
+function ProjectEditorSideNav({ projectId }) {
     return (
         <div className="w-96 h-screen bg-gray-100 mb-5">
             <div className="py-5 px-5 flex flex-row justify-between items-center">
@@ -59,7 +59,7 @@ function ProjectEditorSideNav() {
                 <h1 className=" text-gray-800">Edit</h1>
                 <ul className="py-5">
                     {naveditor.map((elem) => (
-                        <Link to={elem.link}>
+                        <Link to={{ pathname: elem.link, state: { projectId } }}>
                             <li>
                                 <div className="flex items-center justify-between my-8 text-green-800 hover:bg-green-200">
                                     <div className="flex">

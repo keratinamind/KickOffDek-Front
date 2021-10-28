@@ -38,7 +38,7 @@ function ChooseType() {
                             <h1 className="text-xl font-bold mr-8">Choose Type</h1>
                             <Link
                                 to={{
-                                    pathname: "/create/campaign",
+                                    pathname: "/create/finish",
                                     state: { typeId },
                                 }}
                             >

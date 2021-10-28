@@ -70,7 +70,7 @@ function CampaignDetails() {
                                 name="currency"
                                 id="currency"
                                 className="border border-gray-500 my-2 p-2"
-                                value={currencies}
+                                value={input.currency}
                                 onChange={handleChangeInput}
                             >
                                 {currencies.map((elem) => (
