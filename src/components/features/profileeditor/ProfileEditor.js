@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EditFirstStep from "./EditFirstStep";
 import EditSecondStep from "./EditSecondStep";
 import EditThirdStep from "./EditThirdStep";
+import axios from "../../../config/axios";
 
 function ProfileEditor() {
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(`/users/get-user`)
+      .then((res) => {
+        setUserInfo(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.dir(err);
+      });
+  }, []);
+  console.log("userInfo",userInfo)
+
+
   return (
     <div className="container mx-auto flex flex-col my-3 md:my-6">
       {/* Edit Step 1 */}
@@ -19,9 +36,9 @@ function ProfileEditor() {
             <button className="text-green-800">Edit</button>
           </div>
         </div>
-          <div>
-            <EditFirstStep />
-          </div>
+        <div>
+          <EditFirstStep userInfo={userInfo} username={userInfo.username} firstName={userInfo.firstName} lastName={userInfo.lastName} />
+        </div>
         <div className="w-full bg-gray-300 h-px my-3"></div>
       </div>
       {/* Edit Step 2 */}
@@ -37,9 +54,9 @@ function ProfileEditor() {
             <button className="text-green-800">Edit</button>
           </div>
         </div>
-          <div>
-            <EditSecondStep />
-          </div>
+        <div>
+          <EditSecondStep userInfo={userInfo} province={userInfo.province} country={userInfo.country} phoneNumber={userInfo.phoneNumber}/>
+        </div>
         <div className="w-full bg-gray-300 h-px my-3"></div>
       </div>
       {/* Edit Step 3 */}
@@ -55,9 +72,9 @@ function ProfileEditor() {
             <button className="text-green-800">Edit</button>
           </div>
         </div>
-          <div>
-            <EditThirdStep />
-          </div>
+        <div>
+          <EditThirdStep  userInfo={userInfo} facebook={userInfo.facebook} instagram={userInfo.instagram} twitter={userInfo.twitter} website={userInfo.website} />
+        </div>
         <div className="w-full bg-gray-300 h-px my-3"></div>
       </div>
     </div>

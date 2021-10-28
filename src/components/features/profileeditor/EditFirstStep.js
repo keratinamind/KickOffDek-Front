@@ -1,26 +1,73 @@
-import React from "react";
+import axios from "../../../config/axios";
+import React, { useState ,useEffect} from "react";
 import { BsFillCloudArrowUpFill } from "react-icons/bs";
 import { FiAlertCircle } from "react-icons/fi";
 import ButtonSets from "../checkout/ButtonSets";
 
-function EditFirstStep() {
+
+function EditFirstStep({ username, firstName, lastName, userInfo }) {
+  const [userInfoChange, setUserInfoChange] = useState({
+    username: "",
+    firstName: "",
+    lastName: "",
+  });
+  useEffect(() => {
+    setUserInfoChange({ username, firstName, lastName });
+  }, [userInfo]);
+  
+  const clickNext = async (e) => {
+    try {
+      e.preventDefault();
+      await axios.put(`/users/update-user`, {
+        username: userInfoChange.username,
+        firstName: userInfoChange.firstName,
+        lastName: userInfoChange.lastName,
+      });
+    } catch (err) {
+      console.dir(err);
+    }
+  };
+  const clickBack = () => {};
+  const changeValueInput = (e) => {
+    setUserInfoChange((cur) => ({ ...cur, [e.target.name]: e.target.value })); // { username: "dupree", firstName, lastName, username: "izeberg" } => { username: "izeberg", firstName, lastName}
+  };
   return (
     <div>
       <div className="flex flex-row">
         <div className="my-3 px-5  flex flex-col">
           <label
-            htmlFor="email"
+            htmlFor="username"
             className="pb-2 text-sm font-medium text-gray-800 dark:text-gray-100"
           >
-            Name
+            Username
           </label>
           <input
-            type="name"
-            id="name"
-            name="name"
+            type="text"
+            id="username"
+            name="username"
+            value={userInfoChange.username}
+            onChange={changeValueInput}
+            className="border w-72 border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-500 dark:text-gray-400"
+            placeholder="LOL"
+          />
+          <p className="text-xs pt-2 text-red-700">Name Required!</p>
+        </div>
+        <div className="my-3 px-5  flex flex-col">
+          <label
+            htmlFor="firstName"
+            className="pb-2 text-sm font-medium text-gray-800 dark:text-gray-100"
+          >
+            Firstname
+          </label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            value={userInfoChange.firstName}
+            onChange={changeValueInput}
             required
-            className="border w-96 border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-500 dark:text-gray-400"
-            placeholder="Simon De La Rey"
+            className="border w-72 border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-500 dark:text-gray-400"
+            placeholder="Simon"
           />
           <p className="text-xs pt-2 text-red-700">Name Required!</p>
         </div>
@@ -32,17 +79,19 @@ function EditFirstStep() {
             Lastname
           </label>
           <input
-            type="lastName"
+            type="text"
             id="lastName"
             name="lastName"
+            value={userInfoChange.lastName}
+            onChange={changeValueInput}
             required
-            className="border w-96 border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-500 dark:text-gray-400"
-            placeholder="Simon De La Rey"
+            className="border w-72 border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-500 dark:text-gray-400"
+            placeholder="De la Rey"
           />
           <p className="text-xs pt-2 text-red-700">Lastname Required!</p>
         </div>
       </div>
-      <div className="flex my-1 w-144 rounded flex-col mt-5 mx-5">
+      {/* <div className="flex my-1 w-144 rounded flex-col mt-5 mx-5">
         <label
           htmlFor="image"
           className="pb-2 text-sm font-medium text-gray-800 dark:text-gray-100"
@@ -62,8 +111,8 @@ function EditFirstStep() {
         <span className="text-xs text-gray-400 px-2">
           Min. Width 1920px & Min. Height 1080px
         </span>
-      </div>
-      <ButtonSets />
+      </div> */}
+      <ButtonSets clickNext={clickNext} clickBack={clickBack} />
     </div>
   );
 }

@@ -1,9 +1,42 @@
-import React from "react";
-import { BsFillCloudArrowUpFill } from "react-icons/bs";
-import { FiAlertCircle } from "react-icons/fi";
+import React , {useState , useEffect} from "react";
+import axios from "../../../config/axios";
+// import { BsFillCloudArrowUpFill } from "react-icons/bs";
+// import { FiAlertCircle } from "react-icons/fi";
 import ButtonSets from "../checkout/ButtonSets";
 
-function EditThirdStep() {
+function EditThirdStep({facebook, instagram, twitter, website, userInfo}) {
+  const [userInfoChange, setUserInfoChange] = useState({
+    facebook:"",
+    instagram:"",
+    twitter:"",
+    website:""
+  });
+  useEffect(() => {
+    setUserInfoChange({ facebook, instagram, twitter, website });
+    
+  }, [userInfo]);
+
+  console.log("3rd step", userInfoChange);
+
+  const clickNext= async (e) => {
+    try {
+      e.preventDefault();
+      await axios.put(`/users/update-user`, {
+        facebook: userInfoChange.facebook,
+        instagram: userInfoChange.instagram,
+        twitter: userInfoChange.twitter,
+        website: userInfoChange.website
+        
+      })
+      .then((res)=> console.log(res.data));
+    } catch (err) {
+      console.dir(err);
+    }
+  };
+  const clickBack= () => {};
+  const changeValueInput = (e) => {
+    setUserInfoChange((cur) => ({ ...cur, [e.target.name]: e.target.value })); // { username: "dupree", firstName, lastName, username: "izeberg" } => { username: "izeberg", firstName, lastName}
+  };
   return (
     <>
       <div className="grid grid-cols-2 gap-4 w-144 my-10">
@@ -18,8 +51,10 @@ function EditThirdStep() {
             </div>
             <input
               type="text"
-              name="price"
-              id="price"
+              name="facebook"
+              id="facebook"
+              value={userInfoChange.facebook}
+              onChange={changeValueInput}
               className="h-10 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md"
               placeholder=""
             />
@@ -36,8 +71,10 @@ function EditThirdStep() {
             </div>
             <input
               type="text"
-              name="price"
-              id="price"
+              name="instagram"
+              id="instagram"
+              value={userInfoChange.instagram}
+              onChange={changeValueInput}
               className="h-10 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md"
               placeholder="instagram"
             />
@@ -54,8 +91,10 @@ function EditThirdStep() {
             </div>
             <input
               type="text"
-              name="price"
-              id="price"
+              name="twitter"
+              id="twitter"
+              value={userInfoChange.twitter}
+              onChange={changeValueInput}
               className="h-10 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md"
               placeholder="twitter"
             />
@@ -72,15 +111,17 @@ function EditThirdStep() {
             </div>
             <input
               type="text"
-              name="price"
-              id="price"
+              name="website"
+              id="website"
+              value={userInfoChange.website}
+              onChange={changeValueInput}
               className="h-10 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md"
               placeholder="Website"
             />
           </div>
         </div>
       </div>
-      <ButtonSets />
+      <ButtonSets clickNext={clickNext} clickBack={clickBack} />
     </>
   );
 }
