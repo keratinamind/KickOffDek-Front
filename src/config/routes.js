@@ -27,6 +27,8 @@ import Project from "../pages/Project";
 import CreatorDB from "../components/features/user-directory/CreatorDB";
 import ProjectActivity from "../pages/ProjectActivity";
 import ProjectCommunity from "../pages/ProjectCommunity";
+import ProfileEdit from "../pages/profileeditor/ProfileEdit";
+import ProfilePreview from "../pages/ProfilePreview";
 
 const route = {
   user: {
@@ -51,9 +53,9 @@ const route = {
       { path: "/dashboard/mypledge", component: MyPledges },
       { path: "/dashboard/creator", component: CreatorDB },
       { path: "/dashboard", component: Dashboard },
-      { path: "/explore/project/activity", component: ProjectActivity },
-      { path: "/explore/project/community", component: ProjectCommunity },
-      { path: "/explore/project", component: Project },
+      { path: "/explore/project/activity/:id", component: ProjectActivity },
+      { path: "/explore/project/community/:id", component: ProjectCommunity },
+      { path: "/explore/project/:id", component: Project },
       { path: "/explore", component: Category },
 
       { path: "/create/verify", component: VerifyUser },
@@ -63,6 +65,8 @@ const route = {
       { path: "/create/profile", component: ProfileDetails },
       { path: "/create/finish", component: ProjectCreated },
       //added till here
+      { path: "/user/profile/manage", component: ProfileEdit },
+      { path: "/user/profile/preview", component: ProfilePreview },
       { path: "/user", component: Homepage },
       { path: "/checkout", component: Homepage },
       { path: "/content", component: Homepage },
@@ -80,6 +84,10 @@ const route = {
 
   guest: {
     route: [
+      { path: "/explore/project/activity", component: ProjectActivity },
+      { path: "/explore/project/community", component: ProjectCommunity },
+      { path: "/explore/project", component: Project },
+      { path: "/explore", component: Category },
       { path: "/login", component: Homepage },
       { path: "/register", component: Homepage },
       { path: "/about", component: Homepage },

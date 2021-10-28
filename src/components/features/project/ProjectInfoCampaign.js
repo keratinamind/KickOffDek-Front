@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import CardReward from "../../reuse/Cardreward";
 import CampaignCard from "./CampaignCard";
+import RewardBar from "./RewardBar";
+import axios from "../../../config/axios";
 
 function ProjectInfoCampaign() {
-  const mainPic = "https://picsum.photos/200/200";
-  const mainVid = "https://www.youtube.com/embed/Alm-YjqwDGU";
+  //   const mainPic = "https://picsum.photos/200/200";
+  //   const mainVid = "https://www.youtube.com/embed/Alm-YjqwDGU";
+
+  const { id } = useParams();
+
+  const [project, setProject] = useState({});
+
+  useEffect(() => {
+    try {
+      const fetchProjectById = async () => {
+        const res = await axios.get(`/projects/get-by-id/${id}`);
+        setProject(res.data);
+      };
+      fetchProjectById();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  const { campaignImage, pitchVideo } = project;
 
   return (
     <div className="grid grid-cols-4 w-10/12 mx-auto">
@@ -11,7 +33,7 @@ function ProjectInfoCampaign() {
         <h1 className="text-2xl font-bold my-2">About this project</h1>
         <img
           className="my-2 mx-auto"
-          src={mainPic}
+          src={campaignImage}
           alt="KickOffDek"
           width="300"
           height="200"
@@ -25,8 +47,7 @@ function ProjectInfoCampaign() {
         </p>
         <iframe
           className="my-2 mx-auto"
-          src={mainVid}
-          frameborder="0"
+          src={pitchVideo}
           width="700"
           height="500"
         ></iframe>
@@ -49,14 +70,8 @@ function ProjectInfoCampaign() {
           rerum sint vel aliquid.
         </p>
       </div>
-      <div className="col-span-1">
-        <div className="flex justify-evenly flex-col items-center mb-10">
-          <h1 className="my-2 text-2xl font-bold">Campaign</h1>
-          <CampaignCard className="mb-5" />
-          <CampaignCard className="mb-5" />
-          <CampaignCard className="mb-5" />
-        </div>
-      </div>
+
+      <RewardBar />
     </div>
   );
 }

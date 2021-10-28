@@ -1,11 +1,15 @@
-import { HiArrowNarrowLeft,HiChevronRight } from "react-icons/hi";
-
+import { HiArrowNarrowLeft, HiChevronRight } from "react-icons/hi";
+import { Link } from "react-router-dom";
+import { useEditorContext } from "../../contexts/EditorContext";
 
 function SubmitStatus() {
+    const { project } = useEditorContext();
     return (
         <div className="w-100 border">
             <div className="flex items-center">
-                <HiArrowNarrowLeft />
+                <Link to={{ pathname: "/project", state: { projectId: project.id } }}>
+                    <HiArrowNarrowLeft />
+                </Link>
                 <p>Submit for Review & Launch</p>
             </div>
             <div className="flex w-100 justify-evenly items-center">
@@ -25,7 +29,6 @@ function SubmitStatus() {
                 </div>
             </div>
             <div>Function...</div>
-           
         </div>
     );
 }

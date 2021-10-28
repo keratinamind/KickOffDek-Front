@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Cardproject from "../reuse/Cardproject";
-import axios from "axios";
+import axios from "../../config/axios";
+import { Link } from "react-router-dom";
 
 function Mainfeed() {
-  const url = "http://localhost:8888";
   const [currentFeed, setCurrentFeed] = useState([]);
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
     try {
       const fetchProject = async () => {
-        const res = await axios.get(`${url}/projects/get-all`);
+        const res = await axios.get("/projects/get-all");
 
         setCurrentFeed(res.data);
       };
@@ -30,8 +30,6 @@ function Mainfeed() {
     const isTrue = category.includes(i.Category?.name);
     return isTrue;
   });
-  console.log(category);
-  console.log(filteredFeed);
 
   const isClicked = (i) =>
     category.includes(i) ? "bg-purple-600 text-white" : "";
@@ -180,12 +178,16 @@ function Mainfeed() {
           {category.length > 0
             ? filteredFeed.map((item, idx) => (
                 <div className="m-2 pb-4" key={idx}>
-                  <Cardproject {...item} />
+                  <Link to={`/explore/project/${item.id}`}>
+                    <Cardproject {...item} />
+                  </Link>
                 </div>
               ))
             : currentFeed.map((item, idx) => (
                 <div className="m-2 pb-4" key={idx}>
-                  <Cardproject {...item} />
+                  <Link to={`/explore/project/${item.id}`}>
+                    <Cardproject {...item} />
+                  </Link>
                 </div>
               ))}
         </div>

@@ -3,12 +3,14 @@ import { HiArrowNarrowLeft } from "react-icons/hi";
 import { BsFillCloudArrowUpFill } from "react-icons/bs";
 import { FiAlertCircle } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { useEditorContext } from "../../../../contexts/EditorContext";
 
 function SidebarSetupVisual() {
+  const { project } = useEditorContext();
   return (
     <div className="w-96 h-screen bg-gray-100 mx-5 my-5 mb-5">
       <div className="flex flex-row items-center">
-        <Link to="/project">
+        <Link to={{ pathname: "/project", state: { projectId: project.id } }}>
           <HiArrowNarrowLeft className="text-xl mr-3" />
         </Link>
         <h1 className="font-semibold text-md">Visuals</h1>
