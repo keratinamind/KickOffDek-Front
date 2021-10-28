@@ -4,6 +4,7 @@ import DecoupledEditor from "@ckeditor/ckeditor5-build-decoupled-document";
 import { HiArrowNarrowLeft } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { CKEditor, CKFinder } from "@ckeditor/ckeditor5-react";
+import { useEditorContext } from "../../../contexts/EditorContext";
 
 const editorConfiguration = {
   plugins: CKFinder,
@@ -16,8 +17,9 @@ const editorConfiguration = {
 };
 
 function Description() {
-  const [text, setText] = useState("");
-  const [text2, setText2] = useState("");
+  const { project } = useEditorContext();
+  const [text, setText] = useState(project.campaignStory);
+  const [text2, setText2] = useState(project.budgetOverview);
   return (
     <>
       <Link to="/project">
