@@ -1,52 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "../../../config/axios";
 
-function ChooseRewards() {
+function ChooseRewards({
+  rewards,
+  setChosenReward,
+  chosenReward,
+  amount,
+  setAmount,
+  setChosen
+}) {
+  console.log(rewards);
   return (
     <>
       <div className="flex items-center justify-center my-3">
         <h1 className="text-2xl font-medium">Choose your reward</h1>
       </div>
       <div className="grid grid-cols-3 gap-3 mr-7 my-5">
-        <button className="w-full rounded-xl bg-green-700 text-white h-10 hover:bg-green-900">
-          {" "}
-          2$ or More
-        </button>
-        <button className="w-full rounded-xl bg-green-700 text-white h-10 hover:bg-green-900">
-          {" "}
-          2$ or More
-        </button>
-        <button className="w-full rounded-xl bg-green-700 text-white h-10 hover:bg-green-900">
-          {" "}
-          2$ or More
-        </button>
-        <button className="w-full rounded-xl bg-green-700 text-white h-10 hover:bg-green-900">
-          {" "}
-          2$ or More
-        </button>
-        <button className="w-full rounded-xl bg-green-700 text-white h-10 hover:bg-green-900">
-          {" "}
-          2$ or More
-        </button>
-        <button className="w-full rounded-xl bg-green-700 text-white h-10 hover:bg-green-900">
-          {" "}
-          2$ or More
-        </button>
-        <button className="w-full rounded-xl bg-green-700 text-white h-10 hover:bg-green-900">
-          {" "}
-          2$ or More
-        </button>
-        <button className="w-full rounded-xl bg-green-700 text-white h-10 hover:bg-green-900">
-          {" "}
-          2$ or More
-        </button>
-        <button className="w-full rounded-xl bg-green-700 text-white h-10 hover:bg-green-900">
-          {" "}
-          2$ or More
-        </button>
-        <button className="w-full rounded-xl bg-green-700 text-white h-10 hover:bg-green-900">
-          {" "}
-          2$ or More
-        </button>
+        {rewards.map((elem) => (
+          <button
+            onClick={() => {
+              setChosenReward(elem);
+              setChosen(true);
+            }}
+            className="w-full rounded-xl bg-green-700 text-white h-10 hover:bg-green-900 focus:bg-white focus:text-green-800 focus:ring-1 focus:ring-green-800"
+          >
+            {elem.minPledge} or More
+          </button>
+        ))}
       </div>
       <div className="flex flex-row">
         <div className="mt-7 flex flex-col mx-3">
@@ -62,11 +42,12 @@ function ChooseRewards() {
             </span>
             <input
               type="text"
-              id="firstName"
-              name="firstName"
+              id="minPledge"
+              name="minPledge"
+              value={chosenReward.minPledge}
               required
               className="border w-48 border-gray-300 dark:border-gray-700 hover:border-green-700 pl-3 py-3 rounded-r text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-500 dark:text-gray-400"
-              placeholder="FirstName"
+              placeholder=""
             />
           </div>
         </div>
@@ -81,6 +62,10 @@ function ChooseRewards() {
             type="number"
             id="quantity"
             name="quantity"
+            max="5"
+            min="1"
+            onChange={(e) => setAmount(e.target.value)}
+            value={amount}
             required
             className="border w-24 border-gray-300 dark:border-gray-700 hover:border-green-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-500 dark:text-gray-400"
             placeholder="Quantity"

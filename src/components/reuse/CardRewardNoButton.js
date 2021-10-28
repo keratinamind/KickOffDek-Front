@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BsPerson, BsCalendarCheck } from "react-icons/bs";
 
-function CardRewardNoButton() {
+function CardRewardNoButton({chosenReward}) {
     const [ShowMore, setShowMore] = useState("truncate");
     const [HideShowButton, setHideShowButton] = useState("Show more");
 
@@ -16,20 +16,16 @@ function CardRewardNoButton() {
                 <img
                     className="h-44 w-full object-cover"
                     alt=""
-                    src="https://res.cloudinary.com/thisisdupreecloud/image/upload/v1634239095/photo-1537519646099-335112f03225_jwqufc.jpg"
+                    src={chosenReward?.image ?? "https://res.cloudinary.com/thisisdupreecloud/image/upload/v1634232279/photo-1502680390469-be75c86b636f_u4mjrm.jpg"}
                 />
 
                 <div className="bg-white w-full p-4 flex flex-col pt-4">
                     <div className="flex items-center justify-center">
-                        <h1 className="text-sm">No Reward</h1>
+                        <h1 className="text-sm">{chosenReward?.title}</h1>
                     </div>
                     <div>
                         <h1 className={`text-md text-purple-800 mt-4 ${ShowMore}`}>
-                            10x14 inch hardcover book, printed in South Australia using eco-friendly ink printed onto
-                            sustainable 150gsm paper. The book will comprise all 100 portraits along with an
-                            introduction explaining the project. We’ll include key dates in Sydney’s Lockdown 2.0 and
-                            explain the restrictions locals were under in areas that were dubbed “LGAs of concern” at
-                            the time. It will also include pictures of the walls where the portraits were posted.
+                            {chosenReward?.description}
                         </h1>
                         <button onClick={showMore} className="text-sm text-green-800 font-semibold">
                             {HideShowButton}
@@ -38,11 +34,11 @@ function CardRewardNoButton() {
 
                     <div className="flex flex-start text-xs mt-3 items-center">
                         <BsPerson />
-                        <h1 className="ml-1"> 0 chosen / 200 available</h1>
+                        <h1 className="ml-1"> {chosenReward?.backerCount} chosen / {chosenReward?.limit} available</h1>
                     </div>
                     <div className="flex flex-start text-xs mt-3">
                         <BsCalendarCheck />
-                        <h1 className="ml-1"> Est. delivery is Dec 21</h1>
+                        <h1 className="ml-1"> Est. delivery is {chosenReward?.estDeliveryMonth} {chosenReward?.estDeliveryYear}</h1>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import axios from "../../../config/axios";
 import React, { useState ,useEffect} from "react";
-import { BsFillCloudArrowUpFill } from "react-icons/bs";
-import { FiAlertCircle } from "react-icons/fi";
+// import { BsFillCloudArrowUpFill } from "react-icons/bs";
+// import { FiAlertCircle } from "react-icons/fi";
 import ButtonSets from "../checkout/ButtonSets";
 
 
