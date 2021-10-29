@@ -22,8 +22,8 @@ function EditSecondStep({ province, country, phoneNumber, userInfo }) {
         province: userInfoChange.province,
         country: userInfoChange.country,
         phoneNumber: userInfoChange.phoneNumber,
-      })
-      .then((res) => console.log(res.data));
+      });
+      alert("updated").then((res) => console.log(res.data));
     } catch (err) {
       console.dir(err);
     }

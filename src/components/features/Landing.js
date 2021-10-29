@@ -20,13 +20,15 @@ function Landing() {
         <section class="relative">
           <div class="container flex flex-col-reverse lg:flex-row items-center gap-12 mt-14 lg:mt-28">
             <div class="flex flex-1 flex-col items-center lg:items-start">
+              <h2 class="text-bookmark-blue text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-6 bg-purple-600 p-5 rounded-xl text-white">
+                KickOffDek
+              </h2>
               <h2 class="text-bookmark-blue text-3xl md:text-4 lg:text-5xl text-center lg:text-left mb-6">
-                A Simple Bookmark Manager
+                Your dream project starts here.
               </h2>
               <p class="text-bookmark-grey text-lg text-center lg:text-left mb-6">
-                A clean and simple interface to organize your favourite
-                websites. Open a new browser tab and see your sites load
-                instantly. Try it for free.
+                The place you can realize your projects, find your backer and
+                Kick off your dream!
               </p>
               <div class="flex justify-center flex-wrap gap-6">
                 <button

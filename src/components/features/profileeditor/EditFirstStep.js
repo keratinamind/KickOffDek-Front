@@ -1,9 +1,8 @@
 import axios from "../../../config/axios";
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 // import { BsFillCloudArrowUpFill } from "react-icons/bs";
 // import { FiAlertCircle } from "react-icons/fi";
 import ButtonSets from "../checkout/ButtonSets";
-
 
 function EditFirstStep({ username, firstName, lastName, userInfo }) {
   const [userInfoChange, setUserInfoChange] = useState({
@@ -14,7 +13,7 @@ function EditFirstStep({ username, firstName, lastName, userInfo }) {
   useEffect(() => {
     setUserInfoChange({ username, firstName, lastName });
   }, [userInfo]);
-  
+
   const clickNext = async (e) => {
     try {
       e.preventDefault();
@@ -23,6 +22,7 @@ function EditFirstStep({ username, firstName, lastName, userInfo }) {
         firstName: userInfoChange.firstName,
         lastName: userInfoChange.lastName,
       });
+      alert("updated!");
     } catch (err) {
       console.dir(err);
     }

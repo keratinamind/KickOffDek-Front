@@ -34,7 +34,7 @@ function Preview() {
         style={{
           backgroundImage:
             "url(" +
-            "https://res.cloudinary.com/thisisdupreecloud/image/upload/v1635363447/3afb87113976777.6032bfa0581bd_beg1zb.jpg" +
+            "https://res.cloudinary.com/dbvkblwuz/image/upload/v1635483924/pexels-drew-rae-1871508_ponmkl.jpg" +
             ")",
           backgroundPosition: "center",
           backgroundSize: "cover",
@@ -55,9 +55,17 @@ function Preview() {
 
             <button className="inline-flex bg-clear mx-3 text-white rounded-full h-8 px-3 justify-center items-center hover:bg-purple-300">
               <HiOutlineShare />
-              <span className="px-1" onClick={() => setOpenModal(true)}>About</span>
+              <span className="px-1" onClick={() => setOpenModal(true)}>
+                About
+              </span>
             </button>
-            {openModal && <ModalAvatar closeModal={setOpenModal} avatar={userInfo.avatar} firstName={userInfo.username} />}
+            {openModal && (
+              <ModalAvatar
+                closeModal={setOpenModal}
+                avatar={userInfo.avatar}
+                firstName={userInfo.username}
+              />
+            )}
           </div>
           <div className="flex flex-row  my-3">
             {/* map ได้ */}
