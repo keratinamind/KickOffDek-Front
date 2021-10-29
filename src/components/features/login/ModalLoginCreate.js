@@ -32,8 +32,8 @@ function Modallogincreate({ checkedEmail, closeModal, setOpenModal, setOpenModal
             });
             if (!err.username && !err.email && !err.password) {
                 const res = await axios.post("/users/register", input);
-                console.log(res.data);
                 setInput((currentState) => ({ ...currentState, username: "", email: "", password: "" }));
+                closeModal(false)
             }
         } catch (err) {
             if (err.response?.status === 400) {

@@ -2,9 +2,10 @@ import { useState } from "react";
 // import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import DecoupledEditor from "@ckeditor/ckeditor5-build-decoupled-document";
 import { HiArrowNarrowLeft } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { CKEditor, CKFinder } from "@ckeditor/ckeditor5-react";
 import { useEditorContext } from "../../../contexts/EditorContext";
+import axios from "../../../config/axios";
 
 const editorConfiguration = {
     plugins: CKFinder,
@@ -18,23 +19,36 @@ const editorConfiguration = {
 
 function Description() {
     const { project } = useEditorContext();
-    const [text, setText] = useState(project.campaignStory);
-    const [text2, setText2] = useState(project.budgetOverview);
+    const [campaignStory, setCampaignStory] = useState(project.campaignStory);
+    const [budgetOverview, setBudgetOverview] = useState(project.budgetOverview);
+    const history = useHistory();
+
+    const clickSave = async () => {
+        try {
+            const formData = new FormData();
+            formData.append("campaignStory", campaignStory);
+            formData.append("budgetOverview", budgetOverview);
+            const res = await axios.put(`/projects/update/${project.id}`, formData);
+            alert(res.data?.msg);
+        } catch (err) {
+            console.dir(err);
+        }
+    };
+
     return (
         <>
-            <Link to="/project">
-                <div className="mx-5 my-5 mb-5 flex flex-row items-center">
-                    <Link to={{ pathname: "/project", state: { projectId: project.id } }}>
-                        <HiArrowNarrowLeft className="text-xl mr-3" />
-                    </Link>
-                    <h1 className="font-semibold text-md">Description</h1>
-                </div>
-            </Link>
+            <div className="mx-5 my-5 mb-5 flex flex-row items-center">
+                <Link to={{ pathname: "/project", state: { projectId: project.id } }}>
+                    <HiArrowNarrowLeft className="text-xl mr-3" />
+                </Link>
+                <h1 className="font-semibold text-md mr-3">Description</h1>
+                <button className="bg-green-700 text-white rounded-md h-7 w-24" onClick={clickSave}>
+                    Save
+                </button>
+            </div>
             <div className="flex flex-col align-center items-center">
                 <div className="">
                     <h1>STORY & PROJECT OUTLINE</h1>
-                    <h2>Content</h2>
-                    <p>{text}</p>
                     <div
                         className="editor w-192"
                         style={{
@@ -47,16 +61,13 @@ function Description() {
                         <CKEditor
                             editor={DecoupledEditor}
                             config={editorConfiguration}
-                            data={text}
+                            data={campaignStory}
                             onChange={(event, editor) => {
                                 const data = editor.getData();
                                 console.log({ event, editor, data });
-                                setText(data);
+                                setCampaignStory(data);
                             }}
                             onReady={(editor) => {
-                                // console.log("Editor is ready to use!", editor);
-
-                                // Insert the toolbar before the editable area.
                                 editor.ui
                                     .getEditableElement()
                                     .parentElement.insertBefore(
@@ -67,21 +78,11 @@ function Description() {
                                     writer.setStyle("height", "600px", editor.editing.view.document.getRoot());
                                 });
                             }}
-                            // onError={({ willEditorRestart }) => {
-                            //     // If the editor is restarted, the toolbar element will be created once again.
-                            //     // The `onReady` callback will be called again and the new toolbar will be added.
-                            //     // This is why you need to remove the older toolbar.
-                            //     if (willEditorRestart) {
-                            //         this.editor.ui.view.toolbar.element.remove();
-                            //     }
-                            // }}
                         />
                     </div>
                 </div>
                 <div className="">
                     <h1>Budget Overview</h1>
-                    <h2>Content</h2>
-                    <p>{text2}</p>
                     <div
                         className="editor w-192"
                         style={{
@@ -94,16 +95,13 @@ function Description() {
                         <CKEditor
                             editor={DecoupledEditor}
                             config={editorConfiguration}
-                            data={text2}
+                            data={budgetOverview}
                             onChange={(event, editor) => {
                                 const data = editor.getData();
                                 console.log({ event, editor, data });
-                                setText2(data);
+                                setBudgetOverview(data);
                             }}
                             onReady={(editor) => {
-                                // console.log("Editor is ready to use!", editor);
-
-                                // Insert the toolbar before the editable area.
                                 editor.ui
                                     .getEditableElement()
                                     .parentElement.insertBefore(
@@ -114,14 +112,6 @@ function Description() {
                                     writer.setStyle("height", "600px", editor.editing.view.document.getRoot());
                                 });
                             }}
-                            // onError={({ willEditorRestart }) => {
-                            //     // If the editor is restarted, the toolbar element will be created once again.
-                            //     // The `onReady` callback will be called again and the new toolbar will be added.
-                            //     // This is why you need to remove the older toolbar.
-                            //     if (willEditorRestart) {
-                            //         this.editor.ui.view.toolbar.element.remove();
-                            //     }
-                            // }}
                         />
                     </div>
                 </div>

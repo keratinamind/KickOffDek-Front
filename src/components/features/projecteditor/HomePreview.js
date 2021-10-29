@@ -4,7 +4,7 @@ import { FaFacebookSquare, FaInstagram, FaTwitter, FaExternalLinkAlt } from "rea
 import Cardproject from "../../reuse/Cardproject";
 import { useEditorContext } from "../../../contexts/EditorContext";
 
-function HomePreview() {
+function HomePreview({ coverImage }) {
     const { project } = useEditorContext();
     return (
         <div className="flex flex-col w-full">
@@ -22,7 +22,7 @@ function HomePreview() {
             <div
                 className="bg-scroll h-full flex flex-row rounded-lg"
                 style={{
-                    backgroundImage: "url(" + `${project?.coverImage}` + ")",
+                    backgroundImage: "url(" + `${coverImage || project?.coverImage}` + ")",
                     backgroundPosition: "center",
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
