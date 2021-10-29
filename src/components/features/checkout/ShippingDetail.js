@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "../../../config/axios";
 
-function ShippingDetail() {
+function ShippingDetail({ setShippingInfo }) {
+  
+  const changeValueInput = (e) => {
+    setShippingInfo((cur) => ({ ...cur, [e.target.name]: e.target.value })); 
+  };
+
   return (
     <>
       <div className="flex items-center justify-center my-3">
-        <h1 className="text-2xl font-medium">Enter payment details</h1>
+        <h1 className="text-2xl font-medium">Enter Shipping details</h1>
       </div>
 
       <div className="flex flex-col mx-auto items-center shadow-lg w-144 ">
@@ -19,6 +25,7 @@ function ShippingDetail() {
             type="text"
             id="recipient"
             name="recipient"
+            onChange={changeValueInput}
             required
             className="border w-full border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-500 dark:text-gray-400"
             placeholder="John ChowRai"
@@ -36,6 +43,7 @@ function ShippingDetail() {
             type="text"
             id="address"
             name="address"
+            onChange={changeValueInput}
             required
             className="border w-full border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-500 dark:text-gray-400"
             placeholder="123/123 ABC Rd."
@@ -54,6 +62,7 @@ function ShippingDetail() {
               type="text"
               id="province"
               name="province"
+              onChange={changeValueInput}
               required
               className="border w-full border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-500 dark:text-gray-400"
               placeholder="Bangkok"
@@ -71,6 +80,7 @@ function ShippingDetail() {
               type="text"
               id="country"
               name="country"
+              onChange={changeValueInput}
               required
               className="border w-full border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-500 dark:text-gray-400"
               placeholder="Vietnam"
@@ -90,6 +100,7 @@ function ShippingDetail() {
               type="number"
               id="postalCode"
               name="postalCode"
+              onChange={changeValueInput}
               required
               className="border w-full border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-500 dark:text-gray-400"
               placeholder="50000"
@@ -98,27 +109,28 @@ function ShippingDetail() {
           </div>
           <div className="ml-2 w-1/2">
             <label
-              htmlFor="contactNumber"
+              htmlFor="phoneNumber"
               className="pb-2 text-sm font-medium  text-gray-800 dark:text-gray-100"
             >
               Contact Number
             </label>
             <input
               type="number"
-              id="contactNumber"
-              name="contactNumber"
+              id="phoneNumber"
+              name="phoneNumber"
+              onChange={changeValueInput}
               required
               className="border w-full border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-500 dark:text-gray-400"
               placeholder="+66 9876 5432 12"
             />
-            <p className="text-xs pt-2 text-red-700">Input your Email!</p>
+            <p className="text-xs pt-2 text-red-700">Input your phone number!</p>
           </div>
         </div>
-        
       </div>
       <div className="flex items-center mt-10">
         <h1 className="mx-3 text-xs">
-          Shipping status will be provided thorugh your email once the creator started ship your rewards.
+          Shipping status will be provided thorugh your email once the creator
+          started ship your rewards.
         </h1>
       </div>
     </>
