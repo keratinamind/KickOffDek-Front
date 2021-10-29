@@ -16,7 +16,7 @@ function NavProjectEditorHome() {
       </div>
       <div className="flex flex-row items-center">
         <Link to="/dashboard">
-          <button className="rounded-xl text-white bg-green-700 hover:bg-green-800 w-16 h-10 text-md font-semibold mx-3">
+          <button className="rounded-xl text-white bg-green-700 hover:bg-green-800 w-16 h-10 text-sm font-semibold mx-3">
             Close Editor
           </button>
         </Link>

@@ -28,15 +28,15 @@ function RewardHome() {
                     <Link to={{ pathname: "/project", state: { projectId: project.id } }}>
                         <HiArrowNarrowLeft className="text-xl mr-3" />
                     </Link>
-                    <h1 className="font-semibold text-xl">Campaign Details</h1>
+                    <h1 className="font-semibold text-xl">Rewards</h1>
                 </div>
                 <div className="">
-                    <button className="flex flex-row bg-green-700 text-white rounded-lg hover:bg-green-900 h-10 items-center text-md w-32 justify-center">
-                        <Link to="/project/setup/rewards/new1">
+                    <Link to="/project/setup/rewards/new1">
+                        <button className="flex flex-row bg-green-700 text-white rounded-lg hover:bg-green-900 h-10 items-center text-md w-32 justify-center">
                             <BsPlusLg className="text-sm" />
-                            <h1 className="mx-1">Add new</h1>
-                        </Link>
-                    </button>
+                            <span className="mx-1">Add new</span>
+                        </button>
+                    </Link>
                 </div>
             </div>
             <div className="flex w-full justify-center">

@@ -1,14 +1,14 @@
-import React from 'react'
-import RewardConfigThird from '../../components/features/projecteditor/RewardConfigThird'
-import NavProjectEditor from '../../components/reuse/NavProjectEditor'
+import React from "react";
+import RewardConfigThird from "../../components/features/projecteditor/RewardConfigThird";
+import NavProjectEditor from "../../components/reuse/NavProjectEditor";
 
 function ConfigRewardThird() {
     return (
         <>
-        <NavProjectEditor/>
-        <RewardConfigThird />
+            <NavProjectEditor />
+            <RewardConfigThird />
         </>
-    )
+    );
 }
 
-export default ConfigRewardThird
+export default ConfigRewardThird;

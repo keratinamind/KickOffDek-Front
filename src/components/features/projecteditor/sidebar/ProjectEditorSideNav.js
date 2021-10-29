@@ -23,14 +23,14 @@ const naveditor = [
         name: "Rewards",
         link: "/project/setup/rewards",
     },
-    {
-        name: "Payments",
-        link: "/project/setup/payment",
-    },
-    {
-        name: "Launch",
-        link: "/project/setup/summary",
-    },
+    // {
+    //     name: "Payments",
+    //     link: "/project/setup/payment",
+    // },
+    // {
+    //     name: "Launch",
+    //     link: "/project/setup/summary",
+    // },
 ];
 const navupdateproject = [
     {
@@ -48,12 +48,13 @@ const navupdateproject = [
         name: "Payments",
     },
 ];
+
 function ProjectEditorSideNav({ projectId }) {
     return (
         <div className="w-96 h-screen bg-gray-100 mb-5">
             <div className="py-5 px-5 flex flex-row justify-between items-center">
                 <h1 className="">Project Editor</h1>{" "}
-                <button className="bg-green-700 text-white rounded-md h-7 w-24">Continue</button>
+                <button className="bg-green-700 text-white rounded-md h-7 w-24">Launch</button>
             </div>
             <div className="px-5">
                 <h1 className=" text-gray-800">Edit</h1>
@@ -72,7 +73,7 @@ function ProjectEditorSideNav({ projectId }) {
                         </Link>
                     ))}
                 </ul>
-                <h1 className="py-5 ">Manage</h1>
+                <h1 className="py-5 ">Manage (coming soon)</h1>
                 <ul className="py-5">
                     {navupdateproject.map((elem) => (
                         <Link to={elem.link}>
