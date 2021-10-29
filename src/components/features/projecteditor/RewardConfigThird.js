@@ -11,14 +11,19 @@ function RewardConfigThird() {
     const location = useLocation();
     console.log(location);
 
+    const month = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
     const clickComplete = async () => {
         try {
             const { title, description, image, estDelivery, limit, maxPerPledge, minPledge } = location.state;
             const formData = new FormData();
+            console.log(estDelivery.split("-")[1]);
+            console.log(month[estDelivery.split("-")[1] - 1]);
             formData.append("title", title);
             formData.append("description", description);
             formData.append("reward-image", image);
-            formData.append("estDelivery", estDelivery);
+            formData.append("estDeliveryMonth", month[estDelivery.split("-")[1] - 1]);
+            formData.append("estDeliveryYear", estDelivery.split("-")[0]);
             formData.append("limit", limit);
             formData.append("maxPerPledge", maxPerPledge);
             formData.append("projectId", project.id);
