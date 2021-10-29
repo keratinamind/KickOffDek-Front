@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { HiArrowNarrowLeft } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useEditorContext } from "../../../../contexts/EditorContext";
 import axios from "../../../../config/axios";
 
 function SidebarSetupProject() {
     const { project } = useEditorContext();
     const [currencies, setCurrencies] = useState([]);
+    const [input, setIntput] = useState({
+        title: project.title,
+        currencyId: project.currencyId,
+        target: project.target,
+        endDate: project.endDate?.slice(0, 10),
+    });
+    const history = useHistory();
 
     useEffect(() => {
         axios
@@ -19,13 +26,35 @@ function SidebarSetupProject() {
             });
     }, []);
 
+    const handleChangeInput = async (e) => {
+        setIntput((currentState) => ({ ...currentState, [e.target.name]: e.target.value }));
+    };
+
+    const clickSave = async () => {
+        try {
+            const formData = new FormData();
+            formData.append("title", input.title);
+            formData.append("currentId", input.currencyId);
+            formData.append("target", input.target);
+            formData.append("endDate", input.endDate);
+            const res = await axios.put(`/projects/update/${project.id}`, formData);
+            alert(res.data?.msg);
+            history.push("/project", { projectId: project.id });
+        } catch (err) {
+            console.dir(err);
+        }
+    };
+
     return (
         <div className="w-96 h-screen bg-gray-100 mx-5 my-5 mb-5">
             <div className="flex flex-row items-center">
                 <Link to={{ pathname: "/project", state: { projectId: project.id } }}>
                     <HiArrowNarrowLeft className="text-xl mr-3" />
                 </Link>
-                <h1 className="font-semibold text-xl">Campaign Details</h1>
+                <h1 className="font-semibold text-xl mr-3">Campaign Details</h1>
+                <button className="bg-green-700 text-white rounded-md h-7 w-24" onClick={clickSave}>
+                    Save
+                </button>
             </div>
             <div className="mt-8">
                 <h1 className="text-sm ">Overview</h1>
@@ -34,11 +63,12 @@ function SidebarSetupProject() {
                 {/* Input Name */}
                 <div className="flex flex-row h-10 my-5 border border-gray-300 rounded">
                     <input
-                        name="field_name"
+                        name="title"
                         className="text-sm  rounded-l px-4 py-2 w-full focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                         type="text"
                         placeholder="Write something here..."
-                        value={project.title}
+                        value={input?.title}
+                        onChange={handleChangeInput}
                     ></input>
                     <span className="text-sm text-gray-600 focus: px-4 py-2 whitespace-no-wrap">34/35</span>
                 </div>
@@ -46,14 +76,15 @@ function SidebarSetupProject() {
                 <div className=" my-5">
                     <div class="col-span-6 sm:col-span-4">
                         <select
-                            id="currency"
-                            name="currency"
+                            id="currencyId"
+                            name="currencyId"
                             class="mt-1 h-10 block w-full py-2 px-3 text-gray-600 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            value={project.Currency?.name}
+                            value={input?.currencyId}
+                            onChange={handleChangeInput}
                         >
                             <option value="">Select Currency</option>
                             {currencies.map((elem) => (
-                                <option key={elem.id} value={elem.name}>
+                                <option key={elem.id} value={elem.id}>
                                     {elem.name}
                                 </option>
                             ))}
@@ -68,11 +99,12 @@ function SidebarSetupProject() {
                         </div>
                         <input
                             type="text"
-                            name="price"
-                            id="price"
+                            name="target"
+                            id="target"
                             className="h-10 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
                             placeholder="0.00"
-                            value={project.target}
+                            value={input?.target}
+                            onChange={handleChangeInput}
                         />
                     </div>
                 </div>
@@ -82,7 +114,9 @@ function SidebarSetupProject() {
                         type="date"
                         placeholder="date...."
                         className="border border-gray-300 text-sm text-gray-600 w-full p-2 my-2 h-10 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                        value={project.endDate?.slice(0, 10)}
+                        name="endDate"
+                        value={input?.endDate}
+                        onChange={handleChangeInput}
                     />
                 </div>
             </div>
