@@ -34,6 +34,7 @@ function CheckoutSummary() {
   console.log(addressCreated);
   // const [projectInfo, setProjectInfo] = useState([]);
   const id = 6;
+  let sumtotal = (amount * +chosenReward.minPledge) ;
   const sendRewardsId = () => {};
   useEffect(() => {
     axios
@@ -134,9 +135,11 @@ function CheckoutSummary() {
             </div>
             {/* Button Detail Checkout */}
             <div className="flex items-center justify-center">
-              <button className="rounded-xl text-white bg-green-700 hover:bg-green-800 w-20  h-10 text-md font-semibold mx-3">
-                Back
-              </button>
+              <Link to="/explore/project/activity/6">
+                <button className="rounded-xl text-white bg-green-700 hover:bg-green-800 w-20  h-10 text-md font-semibold mx-3">
+                  Back
+                </button>
+              </Link>
               <button
                 onClick={() => {
                   setShow1(false);
@@ -158,7 +161,7 @@ function CheckoutSummary() {
             2
           </h1>
           <h1 className="mx-3">Details</h1>
-          <h1>Endangered Species Plush</h1>
+          {/* <h1>Endangered Species Plush</h1> */}
         </div>
         {Show2 && (
           <>
@@ -166,7 +169,13 @@ function CheckoutSummary() {
             {/* Button Veryfy */}
 
             <div className="flex items-center justify-center">
-              <button className="rounded-xl text-white bg-green-700 hover:bg-green-800 w-20  h-10 text-md font-semibold mx-3">
+              <button
+                onClick={() => {
+                  setShow1(true);
+                  setShow2(false);
+                }}
+                className="rounded-xl text-white bg-green-700 hover:bg-green-800 w-20  h-10 text-md font-semibold mx-3"
+              >
                 Back
               </button>
               <button
@@ -190,7 +199,7 @@ function CheckoutSummary() {
             3
           </h1>
           <h1 className="mx-3">Your payments</h1>
-          <h1 className="text-sm">US$ 12</h1>
+          <h1 className="text-sm">US$ {sumtotal}</h1>
         </div>
         {Show3 && (
           <>
@@ -213,8 +222,14 @@ function CheckoutSummary() {
             </div>
             {/* Button Confirm Payment*/}
             <div className="flex items-center justify-center">
-              <button className="rounded-xl text-white bg-green-700 hover:bg-green-800 w-20  h-10 text-md font-semibold mx-3">
-                Home
+              <button
+                onClick={() => {
+                  setShow2(true);
+                  setShow3(false);
+                }}
+                className="rounded-xl text-white bg-green-700 hover:bg-green-800 w-20  h-10 text-md font-semibold mx-3"
+              >
+                Back
               </button>
               <button
                 onClick={() => {
@@ -244,8 +259,14 @@ function CheckoutSummary() {
             <ShippingDetail setShippingInfo={setShippingInfo} />
             {/* Button */}
             <div className="flex items-center justify-center">
-              <button className="rounded-xl text-white bg-green-700 hover:bg-green-800 w-20  h-10 text-md font-semibold mx-3">
-                Home
+              <button
+                onClick={() => {
+                  setShow3(true);
+                  setShow4(false);
+                }}
+                className="rounded-xl text-white bg-green-700 hover:bg-green-800 w-20  h-10 text-md font-semibold mx-3"
+              >
+                Back
               </button>
               <button
                 onClick={clickNextShipping}
@@ -255,7 +276,7 @@ function CheckoutSummary() {
               </button>
               <button
                 onClick={clickConfirmPledge}
-                className="rounded-xl text-white bg-purple-700 hover:bg-purple-800 w-24 h-10 text-md font-semibold mx-3"
+                className="rounded-xl text-white bg-purple-700 hover:bg-purple-800 w-48 h-10 text-md font-semibold mx-3"
               >
                 Confirm Pledge
               </button>
@@ -271,7 +292,7 @@ function CheckoutSummary() {
             5
           </h1>
           <h1 className="mx-3">Your summary</h1>
-          <h1>Endangered Species Plush</h1>
+          <h1>{chosenReward.title}</h1>
         </div>
         {Show5 && (
           <>

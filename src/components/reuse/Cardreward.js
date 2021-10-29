@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { BsPerson, BsCalendarCheck } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 function CardReward({
+  id,
   title,
   description,
   image,
@@ -41,9 +43,18 @@ function CardReward({
             </button>
           </div>
           <div className="flex justify-center mt-4">
-            <button className="rounded-lg bg-green-700 text-white w-full h-10">
-              ${minPledge} OR MORE
-            </button>
+            {/* Button send */}
+            <Link
+              to={{
+                pathname: "/project/pledge/new",
+                
+                state: { rewardId: id },
+              }}
+            >
+              <button className="rounded-lg bg-green-700 text-white w-full h-10">
+                ${minPledge} OR MORE
+              </button>
+            </Link>
           </div>
           <div className="flex flex-start text-xs mt-3 items-center">
             <BsPerson />
